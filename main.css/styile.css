@@ -1,0 +1,165 @@
+.buttoncol{background-color:#275DF5;
+           color: #ffff;}
+
+@font-face {
+    font-family:Segoe UI ;
+    src: url(../font/segoeuib.ttf);
+    
+}
+
+.textnav{font-family:Segoe UI ;
+         font-size: 20px;}
+
+.box{width: 47px;
+     height: 30px;
+     position: relative;
+    top: -1px;;
+     float: right;
+   }
+
+.image{width: 43%;
+    height: 59%;
+}
+
+.banner{width: 100%;
+    
+        background-color: rgb(255, 255, 255);}
+
+.bannerbox{
+    
+    overflow: hidden;}
+    
+.bannerhead{white-space: wrap;
+            word-break: keep-all;
+    height: 300px;
+    background-color: rgb(237, 233, 233);}
+
+
+
+@font-face {
+        font-family:Swis721 Blk BT ;
+        src: url(../font/swz721k.ttf);
+        
+    }
+    
+    .bannertext{font-family:Swis721 Blk BT ;
+                color: #000000;
+                font-size: 87px;} 
+                
+.bannersub{height: 100px;
+           background-color: rgb(237, 233, 233);}
+
+@font-face {
+            font-family:Swis721 BT ;
+            src: url(../font/swz721subn.ttf);
+            
+        }
+        
+.bannersubtext{font-family:Swis721 BT ;
+                    color: #0E0140;
+                    font-size: 34px;} 
+
+.search{height: 100px;
+        background-color: #ffffff;
+        justify-content: space-around;
+        }
+
+.searchbox{height: auto;
+    background-color: rgb(255, 255, 255);
+    }
+
+.textbox{height: 50px;
+        background-color: rgb(255, 255, 255);}
+
+.boxhead{
+    height: 150px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchtext{border: 1px solid #275DF5;}
+
+.searchicon{font-size: 2em;
+  }
+
+  .bannerimage{width: 100%;
+               }
+
+  .img{width: 70%;}
+
+.jobdsteps{height: 300px;
+          }
+
+.bgline{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1856.243' height='202.02' viewBox='0 0 1856.243 202.02' %3E%3Cpath d='M4730,283.4s94.2,193.44,416,195.52,70.122-95.68,465.322-145.6,253.761,79.04,555.361,110.24,411.84-124.8,411.84-124.8' transform='translate(-4725.954 -281.43)' fill='none' stroke='%23275df5' stroke-width='5' stroke-dasharray='10' style=' stroke-dasharray: 10; stroke-dashoffset: 100; animation: dash 5s infinite; ' %3E%3Canimate attributeName='stroke-dasharray' from='10' to='30' dur='15s' repeatCount='indefinite' fill='freeze' /%3E%3Canimate attributeName='stroke-dashoffset' from='100' to='20' dur='15s' repeatCount='indefinite' fill='freeze' /%3E%3C/path%3E%3C/svg%3E") no-repeat;
+     background-position: -3px -48px;
+     background-size: cover;
+}
+
+.Companybox{height: 80px;
+             background-color: #ffffff;}
+
+.Companylogo{background-color: #ffffff;}
+
+.companyimage{width: 100%;
+               height: 100%;}
+
+
+.owl-theme .owl-nav {
+                margin-top: 10px;
+                display: flex;
+                justify-content: space-between;
+                position: relative;
+                top: -150px;
+                
+            }
+
+.owl-carousel .owl-nav button.owl-prev{width: 60px;
+         height: 60px;
+         border-radius: 50px;
+         position: absolute;
+         left: -34px;
+         box-shadow: 0px 0px 100px #000000;}
+
+         .owl-carousel .owl-nav button.owl-next{width: 60px;
+          height: 60px;
+          border-radius: 50px;
+          position: absolute;
+          right: -35px;
+          box-shadow: 0px 0px 100px #000000;}
+
+.card{border-radius: 30px;
+      }
+
+.position{position: relative;
+          top: -80px;}
+
+.job{height: 450px;}
+
+.jobimg{    width: 82%;}
+
+.jobscard{height: 150px;
+          justify-content: space-evenly}
+
+.jobcardborder{border-radius: 30px;
+    height: 133px
+}
+
+.footer{height: 300px;
+        background-color: #312A51;}
+
+
+
+.logobox{height: 50px;
+         margin-left: 100px;
+         color: white;}
+
+.contact{color: white;
+    margin-left: 100px;}
+
+.footertext{
+            color: white;}
+
+
+ 
