@@ -59,11 +59,13 @@
       </li>
       <li>
         <a href="../category/index.php">
-          <button type="button" class="btn btn-outline-primary mb-2 p-2" style="width: 100%;">category</button>
+          <button type="button" class="btn btn-outline-primary mb-2 p-2" style="width: 100%;">Category</button>
         </a>
       </li>
       <li>
-        <button type="button" class="btn btn-outline-primary mb-2 p-2" style="width: 100%;">About</button>
+        <a href="../jobs/index.php">
+          <button type="button" class="btn btn-outline-primary mb-2 p-2" style="width: 100%;">Jobs</button>
+        </a>
       </li>
       <li>
         <button type="button" class="btn btn-outline-primary mb-2 p-2" style="width: 100%;">Contact</button>

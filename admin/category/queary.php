@@ -9,6 +9,8 @@ class category extends DBcon
     public $dlt;
     public $edt;
     public $editbn;
+    public $id;
+    public $inp;
 
 
 
@@ -93,6 +95,33 @@ class category extends DBcon
             }
         }
     }
+
+
+    public function changectry()
+    {
+        if (isset($_POST["editsubmit"])) {
+
+            $this->id = $_POST["editsubmit"];
+            $this->inp = $_POST["re-edit"];
+
+
+            try {
+                $sql = "UPDATE category SET categoryname='$this->inp' WHERE id=$this->id";
+                $stmt = $this->con->prepare($sql);
+                $stmt->execute();
+                header("location:index.php");
+            } catch (PDOException $e) {
+                echo $sql . "<br>" . $e->getMessage();
+            }
+        } else {
+        };
+
+
+        if (isset($_POST["cancel"])) {
+            header("location:index.php");
+        } else {
+        }
+    }
 }
 
 $ctry = new category();
@@ -103,3 +132,4 @@ $ctry->ctrytb();
 
 $ctry->dlt();
 $ctry->edit();
+$ctry->changectry();
