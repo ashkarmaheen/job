@@ -48,13 +48,19 @@
   <div class="d-flex flex-column flex-shrink-0 p-3  text-white bg-dark" id="menuToggle" style="width: 280px; height: 100vh; transition: all .5s; top:54px;">
     <ul class=" nav nav-pills flex-column mb-auto">
       <li class="nav-item">
-        <button type="button" class="btn btn-outline-primary mb-2 p-2" style="width: 100%;">Dashboard</button>
+        <a href="../dashboard/index.php">
+          <button type="button" class="btn btn-outline-primary mb-2 p-2" style="width: 100%;">Dashboard</button>
+        </a>
       </li>
       <li>
-        <button type="button" class="btn btn-outline-primary mb-2 p-2" style="width: 100%;">User</button>
+        <a href="../user/index.php">
+          <button type="button" class="btn btn-outline-primary mb-2 p-2" style="width: 100%;">User</button>
+        </a>
       </li>
       <li>
-        <button type="button" class="btn btn-outline-primary mb-2 p-2" style="width: 100%;">Home</button>
+        <a href="../category/index.php">
+          <button type="button" class="btn btn-outline-primary mb-2 p-2" style="width: 100%;">category</button>
+        </a>
       </li>
       <li>
         <button type="button" class="btn btn-outline-primary mb-2 p-2" style="width: 100%;">About</button>

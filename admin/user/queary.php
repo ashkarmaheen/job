@@ -1,14 +1,13 @@
 <?php
-require("../lib/db.php");
 
-class Sin extends DBcon
+require("../../lib/db.php");
+class userqueary extends DBcon
 {
 
+    public $usertable;
     public $username;
-    public $email;
     public $password;
-
-
+    public $email;
 
 
     public function __construct()
@@ -16,8 +15,27 @@ class Sin extends DBcon
         $this->dbConnect();
     }
 
-    public function signfn()
+    public function table()
     {
+
+
+        try {
+            $this->usertable = $this->con->prepare("SELECT * FROM  users ");
+            $this->usertable->execute();
+
+            $result = $this->usertable->setFetchMode(PDO::FETCH_ASSOC);
+            $tb = $this->usertable->fetchAll();
+
+            return ($tb);
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+        }
+    }
+
+
+    public function adduser()
+    {
+
         if (isset($_POST['submit'])) {
 
             $this->username = $_POST["username"];
@@ -31,11 +49,14 @@ class Sin extends DBcon
             } catch (PDOException $e) {
                 echo $req . "<br>" . $e->getMessage();
             }
+
+            header("location:index.php");
         } else {
         };
     }
-};
+}
+$user = new userqueary();
 
-$conc = new sin();
+$user->table();
 
-$conc->signfn();
+$user->adduser();
