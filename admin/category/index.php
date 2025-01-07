@@ -38,13 +38,13 @@ print_r($editbutton);
 ;
     align-items: center;
     justify-content: center;">
-              <form style="width:35%; background-color:#ffffff; height:200px;border-radius: 10px;padding:20px;">
+              <form method="post" action="queary.php" style="width:35%; background-color:#ffffff; height:200px;border-radius: 10px;padding:20px;">
               <label for="category" class="mb-3">Edit Category</label>
               <input type="text" name="re-edit" class="form-control me-2 w-100" value="' . $ed["categoryname"] . '" placeholder="" aria-label="Search" style="width: 250px;" />
               <div style="height:80px;display: flex;align-items: flex-end;justify-content: flex-end; ">
               <div>
-              <button type="button" class="btn btn-dark" data-mdb-ripple-init>CANCEL</button>
-              <button type="button" class="btn btn-primary" data-mdb-ripple-init>SUBMIT</button>
+              <button type="submit" name="cancel" class="btn btn-dark" data-mdb-ripple-init>CANCEL</button>
+              <button type="submit" name="editsubmit" value="' . $ed["id"] . '" class="btn btn-primary" data-mdb-ripple-init>SUBMIT</button>
               </div>
               </div>
               </form>
