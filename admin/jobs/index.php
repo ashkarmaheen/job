@@ -1,3 +1,12 @@
+<?php
+
+require("queary.php");
+$data = $jobsl->getjob();
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -45,7 +54,7 @@
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
-                                        <tr>
+                                        <tr style="text-align: center;">
                                             <th>Company Name</th>
                                             <th>Job Type</th>
                                             <th>Industries</th>
@@ -54,22 +63,43 @@
                                             <th>Education</th>
                                             <th>Location</th>
                                             <th>Description</th>
+                                            <th>Action</th>
 
                                         </tr>
                                     </thead>
 
                                     <tbody>
-                                        <tr>
-                                            <td>hh</td>
-                                            <td>gg</td>
-                                            <td>gg</td>
-                                            <td>gg</td>
-                                            <td>gg</td>
-                                            <td>gg</td>
-                                            <td>gg</td>
-                                            <td>gg</td>
+                                        <?php
+                                        foreach ($data as $data) {
+                                            echo "<tr>
+                                           
+                                                <td class='d-flex' style='align-items: center'> 
+                                                <div style='width:60px;height:60px;background-color:red;overflow: hidden; margin-right: 10px;'>
+                                                <img style='width:100%;' src='" . $data["image"] . "' />
+                                                </div>
+                                                    <div >" . $data["companyname"] . "</div></td>
+                                            <td>" . $data["jobtype"] . "</td>
+                                            <td>" . $data["industries"] . "</td>
+                                            <td>" . $data["roles"] . "</td>
+                                            <td>" . $data["skills"] . "</td>
+                                            <td>" . $data["education"] . "</td>
+                                            <td>" . $data["location"] . "</td>
+                                            <td>" . $data["description"] . "</td>
+                                            <td><div class=' gap-2 d-flex' style='justify-content: center'>
+                                            <form method='post' action=''>
+                                            <button type='submit' name='edit' value='' class='btn btn-primary mr-3' data-mdb-ripple-init>
+                                            <i class='fa-solid fa-pen-to-square'></i></button>
+                                            </form>
 
-                                        </tr>
+                                            <form action='queary.php' method='post'>
+                                            <button type='submit' name='delete' value=" . $data["id"] . " class='btn btn-danger me-3' data-mdb-ripple-init>
+                                            <i class='fa-solid fa-trash'></i></button>
+                                            </form>
+                                            </div></td>
+                                       
+                                        </tr>";
+                                        };
+                                        ?>
                                     </tbody>
                                 </table>
                             </div>

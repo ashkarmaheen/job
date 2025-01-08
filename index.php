@@ -46,11 +46,13 @@
               </li>
             </ul>
 
-            <button class="btn btn-outline-success buttoncol textnav pt-2 ps-3" type="submit">Upload Resume
-              <div class="box ">
-                <img src="image/upload_3114955.png" class="image">
-              </div>
-            </button>
+            <a href="../job/uploadresume/index.php">
+              <button class="btn btn-outline-success buttoncol textnav pt-2 ps-3" type="submit">Upload Resume
+                <div class="box ">
+                  <img src="image/upload_3114955.png" class="image">
+                </div>
+              </button>
+            </a>
             </form>
           </div>
         </div>
