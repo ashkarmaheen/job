@@ -68,7 +68,9 @@
         </a>
       </li>
       <li>
-        <button type="button" class="btn btn-outline-primary mb-2 p-2" style="width: 100%;">Contact</button>
+        <a href="../skills/index.php">
+          <button type="button" class="btn btn-outline-primary mb-2 p-2" style="width: 100%;">Roles</button>
+        </a>
       </li>
     </ul>
   </div>
