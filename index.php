@@ -17,7 +17,7 @@
 <body>
   <div class="container">
     <div class="row">
-      <nav class="navbar navbar-expand-lg bg-body-tertiary px-0">
+      <nav class="navbar navbar-expand-lg  px-0">
         <div class="container">
           <a class="navbar-brand" href="#">JONBIN</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -197,36 +197,39 @@
     </diV>
   </div>
 
+
   <div class=" container">
     <div class="row">
       <div class="owl-carousel owl-theme owl-nav companymove">
-        <div class="item">
-          <div class="col-12 col-sm-12 clo-md-12 col-lg-12 col-xl-12 col-xxl-12">
-            <div class="card">
-              <div class="card-body px-0">
-                <h3 class="card-title mt-2 ms-4">Produt
-                  <i class="fa-solid fa-chevron-right fa-fade mt-2 ms-2"></i>
-                </h3>
-                <p class="mt-2 ms-4">897 are active hiring</p>
-                <div class=" d-flex col-sm-12 clo-md-12 col-lg-12 col-xl-12 col-xxl-12  Companybox">
+        <a href="companys/index.php" style="text-decoration:none;">
+          <div class="item">
+            <div class="col-12 col-sm-12 clo-md-12 col-lg-12 col-xl-12 col-xxl-12">
+              <div class="card">
+                <div class="card-body px-0">
+                  <h3 class="card-title mt-2 ms-4">Produt
+                    <i class="fa-solid fa-chevron-right fa-fade mt-2 ms-2"></i>
+                  </h3>
+                  <p class="mt-2 ms-4">897 are active hiring</p>
+                  <div class=" d-flex col-sm-12 clo-md-12 col-lg-12 col-xl-12 col-xxl-12  Companybox">
 
-                  <div class="col-4 col-sm-4 clo-md-4 col-lg-4 col-xl-4 col-xxl-4 Companylogo">
-                    <img src="image/company-1.jpg" class="companyimage">
+                    <div class="col-4 col-sm-4 clo-md-4 col-lg-4 col-xl-4 col-xxl-4 Companylogo">
+                      <img src="image/company-1.jpg" class="companyimage">
+                    </div>
+
+                    <div class="col-4 col-sm-4 clo-md-4 col-lg-4 col-xl-4 col-xxl-4 Companylogo">
+                      <img src="image/company-2.jpg" class="companyimage">
+                    </div>
+
+                    <div class="col-4 col-sm-4 clo-md-4 col-lg-4 col-xl-4 col-xxl-4 Companylogo">
+                      <img src="image/company-3.jpg" class="companyimage">
+                    </div>
+
                   </div>
-
-                  <div class="col-4 col-sm-4 clo-md-4 col-lg-4 col-xl-4 col-xxl-4 Companylogo">
-                    <img src="image/company-2.jpg" class="companyimage">
-                  </div>
-
-                  <div class="col-4 col-sm-4 clo-md-4 col-lg-4 col-xl-4 col-xxl-4 Companylogo">
-                    <img src="image/company-3.jpg" class="companyimage">
-                  </div>
-
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </a>
 
         <div class="item">
           <div class="col-12 col-sm-12 clo-md-12 col-lg-12 col-xl-12 col-xxl-12">
