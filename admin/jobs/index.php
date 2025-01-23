@@ -40,7 +40,7 @@ $data = $jobsl->getjob();
 
                 <div class="container-fluid">
                     <div class="d-flex my-3 justify-content-between">
-                        <h1 class="h3 mb-2 text-gray-800">Users</h1>
+                        <h1 class="h3 mb-2 text-gray-800">Jobs</h1>
                         <a href="addjob.php">
                             <button class="btn btn-outline-primary" type="submit">Add Job <i class="fa-solid fa-briefcase"></i></button>
                         </a>
@@ -62,9 +62,16 @@ $data = $jobsl->getjob();
                                             <th>Skills</th>
                                             <th>Education</th>
                                             <th>Location</th>
-                                            <th>Description</th>
+                                            <th>Fixed</th>
+                                            <th>Earning Potential</th>
+                                            <th>Work Mode</th>
+                                            <th>Shift</th>
+                                            <th>Employment type</th>
+                                            <th>Age limit</th>
+                                            <th>Language</th>
+                                            <th>Experience</th>
+                                            <th>Gender</th>
                                             <th>Action</th>
-
                                         </tr>
                                     </thead>
 
@@ -84,7 +91,16 @@ $data = $jobsl->getjob();
                                             <td>" . $data["skills"] . "</td>
                                             <td>" . $data["education"] . "</td>
                                             <td>" . $data["location"] . "</td>
-                                            <td>" . $data["description"] . "</td>
+                                            <td>" . $data["fixed"] . "</td>
+                                            <td>" . $data["earningpotential"] . "</td>
+                                            <td>" . $data["workmode"] . "</td>
+                                            <td>" . $data["shift"] . "</td>
+                                            <td>" . $data["employmenttype"] . "</td>
+                                            <td>" . $data["agelimit"] . "</td>
+                                            <td>" . $data["experience"] . "</td>
+                                            <td>" . $data["gender"] . "</td>
+                                            <td>" . $data["Language"] . "</td>
+
                                             <td><div class=' gap-2 d-flex' style='justify-content: center'>
                                             <form method='post' action=''>
                                             <button type='submit' name='edit' value='' class='btn btn-primary mr-3' data-mdb-ripple-init>

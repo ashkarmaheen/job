@@ -13,10 +13,18 @@ class jobs extends DBcon
     public $skills;
     public $education;
     public $location;
-    public $description;
     public $img;
     public $jobtable;
     public $dlt;
+    public $fixed;
+    public $earning;
+    public $workmode;
+    public $shift;
+    public $employmenttype;
+    public $age;
+    public $language;
+    public $experience;
+    public $gender;
 
 
 
@@ -58,32 +66,46 @@ class jobs extends DBcon
             $this->skills = $_POST['skills'];
             $this->education = $_POST['education'];
             $this->location = $_POST['location'];
-            $this->description = $_POST['description'];
+            $this->fixed = $_POST['fixed'];
+            $this->earning = $_POST['earning'];
+            $this->workmode = $_POST['workmode'];
+            $this->shift = $_POST['shift'];
+            $this->employmenttype = $_POST['employmenttype'];
+            $this->age = $_POST['age'];
+            $this->language = $_POST['language'];
+            $this->experience = $_POST['experience'];
+            $this->gender = $_POST['gender'];
+
+
+
 
             $img = "../../image/";
 
             $ff = $img . basename($this->image["name"]);
+            $extension = pathinfo($ff, PATHINFO_EXTENSION);
+
+            $imgs =  $img . $this->image["name"];
 
 
-
-            if (pathinfo($ff, PATHINFO_EXTENSION) == "png" && $this->image["size"] > 500000) {
-
-                move_uploaded_file($this->image["tmp_name"], $ff);
-
-                echo "ok";
-            } else {
-
-                echo "error";
-            }
 
             try {
-                $req = "INSERT INTO jobs(companyname,image,jobtype,industries,roles,skills,education,location,description) 
-                value('$this->companyname','$ff','$this->jobtype',' $this->industries',' $this->roles','$this->skills',' $this->education','$this->location','$this->description')";
-                $this->con->exec($req);
+
+
+                if (in_array(strtolower($extension), ['png', 'jpg', 'jpeg']) && $this->image["size"] > 500) {
+                    move_uploaded_file($this->image["tmp_name"], $ff);
 
 
 
-                header("location:index.php");
+                    $req = "INSERT INTO jobs(companyname,image,jobtype,industries,roles,skills,education,location,fixed,earningpotential,workmode,shift,employmenttype,agelimit,Language,experience,gender) 
+                    value('$this->companyname','$imgs','$this->jobtype',' $this->industries',' $this->roles','$this->skills',' $this->education','$this->location','$this->fixed','$this->earning','$this->workmode','$this->shift','$this->employmenttype','$this->age','$this->language','$this->experience','$this->gender')";
+                    $this->con->exec($req);
+
+
+
+                    header("location:index.php");
+                } else {
+                    echo "error";
+                }
             } catch (PDOException $e) {
                 echo $req . "<br>" . $e->getMessage();
             }
