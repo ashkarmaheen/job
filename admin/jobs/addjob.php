@@ -45,20 +45,56 @@ $ff = $jobsl->jobfn();
                         <label for="jobType" class="form-label fw-bold">Job Type</label>
                         <input type="text" name="jobtype" class="form-control border-primary" id="jobType" placeholder="Enter job type">
                     </div>
-                    <!-- Industries -->
+
+                    <div class="mb-4 d-flex gap-3">
+                        <div>
+                            <label for="jobType" class="form-label fw-bold">Fixed</label>
+                            <input type="text" name="fixed" class="form-control border-primary" placeholder="type the amount">
+                        </div>
+                        <div>
+                            <label for="jobType" class="form-label fw-bold">Earning Potential</label>
+                            <input type="text" name="earning" class="form-control border-primary" placeholder="type the amount">
+                        </div>
+
+                    </div>
+
+
+
                     <div class="mb-4">
                         <label for="industries" class="form-label fw-bold">Industries</label>
                         <input type="text" name="industries" class="form-control border-primary" id="industries" placeholder="Enter industries">
                     </div>
 
-                    <!-- Roles -->
+                    <div class="mb-4">
+                        <label for="industries" class="form-label fw-bold">Work Mode</label>
+                        <select class="form-select" name="workmode" aria-label="Default select example">
+                            <option selected value="Work from office">Work from office</option>
+                            <option value="work from home">work from home</option>
+
+                        </select>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="industries" class="form-label fw-bold">Shift</label>
+                        <select class="form-select" name="shift" aria-label="Default select example">
+                            <option selected value="day">day</option>
+                            <option value="night">night</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="industries" class="form-label fw-bold">Employment type</label>
+                        <input type="text" name="employmenttype" class="form-control border-primary" id="industries" placeholder="Enter Employment type">
+                    </div>
+
+
                     <div class="mb-4">
                         <label for="roles" class="form-label fw-bold">Roles</label>
                         <select class="form-select" name="roles" aria-label="Default select example">
                             <option selected>Open this select menu</option>
                             <?php
                             foreach ($ff as $tb) {
-                                echo '<option value="">' . $tb["categoryname"] . '</option>';
+                                echo '<option >' . $tb["categoryname"] . '</option>';
                             }
                             ?>
                         </select>
@@ -78,12 +114,31 @@ $ff = $jobsl->jobfn();
                         <label for="location" class="form-label fw-bold">Location</label>
                         <input type="text" name="location" class="form-control border-primary" id="location" placeholder="Enter location">
                     </div>
-                    <!-- Description -->
+
                     <div class="mb-4">
-                        <label for="description" class="form-label fw-bold">Description</label>
-                        <textarea class="form-control border-primary" name="description" id="description" rows="4" placeholder="Enter job description"></textarea>
+                        <label for="location" class="form-label fw-bold">Age limit</label>
+                        <input type="text" name="age" class="form-control border-primary" id="location" placeholder="Enter Age Limit">
                     </div>
-                    <!-- Submit Button -->
+
+                    <div class="mb-4">
+                        <label for="location" class="form-label fw-bold">Language</label>
+                        <input type="text" name="language" class="form-control border-primary" id="location" placeholder="Enter Age Limit">
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="location" class="form-label fw-bold">Experience</label>
+                        <input type="text" name="experience" class="form-control border-primary" id="location" placeholder="Enter Experience">
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="location" class="form-label fw-bold">Gender</label>
+                        <select class="form-select" name="gender" aria-label="Default select example">
+                            <option selected value="Male">male</option>
+                            <option value="Female">female</option>
+                            <option value="Any gender">Any gender</option>
+                        </select>
+                    </div>
+
                     <div class="d-grid">
                         <button type="submit" name="submit" class="btn btn-primary btn-lg">Submit</button>
                     </div>

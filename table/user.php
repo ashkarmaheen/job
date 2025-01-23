@@ -51,11 +51,19 @@ class table extends DBcon
     image VARCHAR(20),
     jobtype VARCHAR(20) NOT NULL,
     industries VARCHAR(20) NOT NULL,
+    fixed VARCHAR(20),
+    earningpotential VARCHAR(20),
+    workmode VARCHAR(20),
+    shift VARCHAR(20),
+    employmenttype VARCHAR(20),
+    agelimit VARCHAR(20),
+    Language VARCHAR(20),
     roles VARCHAR(20) NOT NULL,
     skills VARCHAR(20) NOT NULL,
     education VARCHAR(20) NOT NULL,
     location VARCHAR(20) NOT NULL,
-    description VARCHAR(500) NOT NULL,
+    experience VARCHAR(20) NOT NULL,
+    gender VARCHAR(20) NOT NULL,
     reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP)";
 
             $this->con->exec($req);

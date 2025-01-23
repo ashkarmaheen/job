@@ -1,3 +1,13 @@
+<?php
+
+require("queary.php");
+$namectry = $home->getcategory();
+
+print_r($namectry);
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -201,12 +211,16 @@
   <div class=" container">
     <div class="row">
       <div class="owl-carousel owl-theme owl-nav companymove">
-        <a href="companys/index.php" style="text-decoration:none;">
+        <?php
+
+        foreach ($namectry as $namectry) {
+          $roles = $namectry["roles"];
+          echo '<a href="companies?category=' . $roles . '" style="text-decoration:none;">
           <div class="item">
             <div class="col-12 col-sm-12 clo-md-12 col-lg-12 col-xl-12 col-xxl-12">
               <div class="card">
                 <div class="card-body px-0">
-                  <h3 class="card-title mt-2 ms-4">Produt
+                  <h3 class="card-title mt-2 ms-4">' . $roles . '
                     <i class="fa-solid fa-chevron-right fa-fade mt-2 ms-2"></i>
                   </h3>
                   <p class="mt-2 ms-4">897 are active hiring</p>
@@ -229,121 +243,10 @@
               </div>
             </div>
           </div>
-        </a>
+        </a>';
+        };
+        ?>
 
-        <div class="item">
-          <div class="col-12 col-sm-12 clo-md-12 col-lg-12 col-xl-12 col-xxl-12">
-            <div class="card">
-              <div class="card-body px-0">
-                <h3 class="card-title mt-2 ms-4">manufacturing
-                  <i class="fa-solid fa-chevron-right fa-fade mt-2 ms-2"></i>
-                </h3>
-                <p class="mt-2 ms-4">253 are active hiring</p>
-                <div class=" d-flex col-sm-12 clo-md-12 col-lg-12 col-xl-12 col-xxl-12  Companybox">
-
-                  <div class="col-4 col-sm-4 clo-md-4 col-lg-4 col-xl-4 col-xxl-4 Companylogo">
-                    <img src="image/company-1.jpg" class="companyimage">
-                  </div>
-
-                  <div class="col-4 col-sm-4 clo-md-4 col-lg-4 col-xl-4 col-xxl-4 Companylogo">
-                    <img src="image/company-2.jpg" class="companyimage">
-                  </div>
-
-                  <div class="col-4 col-sm-4 clo-md-4 col-lg-4 col-xl-4 col-xxl-4 Companylogo">
-                    <img src="image/company-3.jpg" class="companyimage">
-                  </div>
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="col-12 col-sm-12 clo-md-12 col-lg-12 col-xl-12 col-xxl-12">
-            <div class="card">
-              <div class="card-body px-0">
-                <h3 class="card-title mt-2 ms-4">Banking
-                  <i class="fa-solid fa-chevron-right fa-fade mt-2 ms-2"></i>
-                </h3>
-                <p class="mt-2 ms-4">1k are active hiring</p>
-                <div class=" d-flex col-sm-12 clo-md-12 col-lg-12 col-xl-12 col-xxl-12  Companybox">
-
-                  <div class="col-4 col-sm-4 clo-md-4 col-lg-4 col-xl-4 col-xxl-4 Companylogo">
-                    <img src="image/company-7.png" class="companyimage">
-                  </div>
-
-                  <div class="col-4 col-sm-4 clo-md-4 col-lg-4 col-xl-4 col-xxl-4 Companylogo">
-                    <img src="image/company-8.jpg" class="companyimage">
-                  </div>
-
-                  <div class="col-4 col-sm-4 clo-md-4 col-lg-4 col-xl-4 col-xxl-4 Companylogo">
-                    <img src="image/company-9.jpg" class="companyimage">
-                  </div>
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="col-12 col-sm-12 clo-md-12 col-lg-12 col-xl-12 col-xxl-12">
-            <div class="card">
-              <div class="card-body px-0">
-                <h3 class="card-title mt-2 ms-4">Travel & Hotel
-                  <i class="fa-solid fa-chevron-right fa-fade mt-2 ms-2"></i>
-                </h3>
-                <p class="mt-2 ms-4">950 are active hiring</p>
-                <div class=" d-flex col-sm-12 clo-md-12 col-lg-12 col-xl-12 col-xxl-12  Companybox">
-
-                  <div class="col-4 col-sm-4 clo-md-4 col-lg-4 col-xl-4 col-xxl-4 Companylogo">
-                    <img src="image/company-10.jpg" class="companyimage">
-                  </div>
-
-                  <div class="col-4 col-sm-4 clo-md-4 col-lg-4 col-xl-4 col-xxl-4 Companylogo">
-                    <img src="image/company-11.jpg" class="companyimage">
-                  </div>
-
-                  <div class="col-4 col-sm-4 clo-md-4 col-lg-4 col-xl-4 col-xxl-4 Companylogo">
-                    <img src="image/company-12.png" class="companyimage">
-                  </div>
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-
-        <div class="item">
-          <div class="col-12 col-sm-12 clo-md-12 col-lg-12 col-xl-12 col-xxl-12">
-            <div class="card">
-              <div class="card-body px-0">
-                <h3 class="card-title mt-2 ms-4">Travel & Hotel
-                  <i class="fa-solid fa-chevron-right fa-fade mt-2 ms-2"></i>
-                </h3>
-                <p class="mt-2 ms-4">950 are active hiring</p>
-                <div class=" d-flex col-sm-12 clo-md-12 col-lg-12 col-xl-12 col-xxl-12  Companybox">
-
-                  <div class="col-4 col-sm-4 clo-md-4 col-lg-4 col-xl-4 col-xxl-4 Companylogo">
-                    <img src="image/company-10.jpg" class="companyimage">
-                  </div>
-
-                  <div class="col-4 col-sm-4 clo-md-4 col-lg-4 col-xl-4 col-xxl-4 Companylogo">
-                    <img src="image/company-11.jpg" class="companyimage">
-                  </div>
-
-                  <div class="col-4 col-sm-4 clo-md-4 col-lg-4 col-xl-4 col-xxl-4 Companylogo">
-                    <img src="image/company-12.png" class="companyimage">
-                  </div>
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
       </diV>
     </diV>
