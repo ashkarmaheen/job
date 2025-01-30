@@ -1,3 +1,11 @@
+<?php
+
+require("queary.php");
+$data = $company->getcompanies();
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,63 +18,72 @@
 
 <body>
     <div class="container">
-        <div class=" row">
+        <div><?php
+                require("../componants/header.php");
+                ?></div>
 
-            <div class="card mb-3 mt-4 col-md-8 ">
+        <?php
+
+        foreach ($data as $data) {
+            echo '<div class=" row justify-content-center">
+
+            <div class="card mb-3 mt-5 col-md-8 ">
                 <div class="row g-0">
 
                     <div>
                         <div class="card-body">
                             <div class="d-flex mb-2">
-                                <div class="bg-secondary  me-2" style="width:100px;height:100px;"></div>
+                                <div class="bg-secondary  me-2" style="width:100px;height:100px;">
+                                <img style="width:100%;" src="' . $data["image"] . '" />
+                                </div>
                                 <div>
-                                    <h2 class="card-title">React Js Developer</h2>
-                                    <p class="card-text" style="font-size: 20px;">Shine Infotech Solution</p>
+                                    <h2 class="card-title">' . $data["jobtype"] . '</h2>
+                                    <p class="card-text" style="font-size: 20px;">' . $data["companyname"] . '</p>
                                 </div>
                             </div>
 
                             <div class="d-flex gap-2 text-secondary">
                                 <div><i class="fa-solid fa-location-dot"></i></div>
                                 <p class="card-text ">
-                                    Ambattur Industrial Estate, Chennai
+                                    ' . $data["location"] . '
                                 </p>
                             </div>
 
                             <div class="rounded px-3 py-2 d-flex mt-3" style="background-color:#edebee80;justify-content:space-around;">
                                 <div>
                                     <p class="card-text m-0">Fixed</p>
-                                    <p class="card-text "><i class="fa-solid fa-indian-rupee-sign"></i> 25000</p>
+                                    <p class="card-text "><i class="fa-solid fa-indian-rupee-sign"></i>' . $data["fixed"] . '</p>
                                 </div>
 
                                 <div>
                                     <p class="card-text m-0">Earning Potential</p>
-                                    <p class="card-text "><i class="fa-solid fa-indian-rupee-sign"></i> 45000</p>
+                                    <p class="card-text "><i class="fa-solid fa-indian-rupee-sign"></i>' . $data["earningpotential"] . '</p>
                                 </div>
                             </div>
 
                             <div class="d-flex mt-3" style="justify-content:space-between;">
                                 <div class="p-1" style="background-color:#dcdcdc;color:#686868;display: flex;align-items: center;justify-content: center;border-radius: 3px">
                                     <div class="me-1"><i class="fa-solid fa-building"></i></div>
-                                    <p class="card-text">work from home</p>
+                                    <p class="card-text">' . $data["workmode"] . '</p>
 
                                 </div>
 
                                 <div class="p-1" style="background-color:#dcdcdc;color:#686868;display: flex;align-items: center;justify-content: center;border-radius: 3px">
                                     <div class="p-1" style="background-color:#dcdcdc;color:#686868;display: flex;align-items: center;justify-content: center;">
                                         <div class="me-1"><i class="fa-regular fa-clock"></i></div>
-                                        <p class="card-text"> full time</p>
+                                        <p class="card-text">' . $data["employmenttype"] . '</p>
                                     </div>
 
                                 </div>
 
                                 <div class="p-1" style="background-color:#dcdcdc;color:#686868;display: flex;align-items: center;justify-content: center;border-radius: 3px">
                                     <div class="me-1"><i class="fa-solid fa-calendar"></i></div>
-                                    <p class="card-text"> 2 year</p>
+                                    <p class="card-text">' . $data["experience"] . '</p>
                                 </div>
 
                                 <div class="p-1" style="background-color:#dcdcdc;color:#686868;display: flex;align-items: center;justify-content: center;border-radius: 3px">
                                     <div class="me-1"><i class="fa-solid fa-language"></i></div>
-                                    <p class="card-text"> basic english</p>
+                                    <p class="card-text">' . $data["Language"] . '</p>
                                 </div>
 
                             </div>
@@ -92,14 +109,14 @@
                             <div class="col-md-6">
                                 <h6 class="card-title text-secondary"><i class="fa-solid fa-building"></i> Work location</h6>
                                 <p class="card-text ">
-                                    65, Vanagaram Main Road, Kalaivanar Nagar, Attipattu, Ambattur Industrial Estate, Chennai, Tamil Nadu, India
+                                    ' . $data["location"] . '
                                 </p>
                             </div>
 
                             <div class="col-md-6">
                                 <h6 class="card-title text-secondary"><i class="fa-solid fa-clipboard"></i> Department</h6>
                                 <p class="card-text ">
-                                    Software Engineering
+                                    ' . $data["industries"] . '
                                 </p>
                             </div>
                         </div>
@@ -108,14 +125,14 @@
                             <div class="col-md-6">
                                 <h6 class="card-title text-secondary"><i class="fa-solid fa-code-fork"></i> Role / Category</h6>
                                 <p class="card-text ">
-                                    Frontend Development
+                                    ' . $data["roles"] . '
                                 </p>
                             </div>
 
                             <div class="col-md-6">
                                 <h6 class="card-title text-secondary"><i class="fa-solid fa-clock"></i> Employment type</h6>
                                 <p class="card-text ">
-                                    Full Time
+                                    ' . $data["employmenttype"] . '
                                 </p>
                             </div>
                         </div>
@@ -124,7 +141,7 @@
                             <div class="col-md-6">
                                 <h6 class="card-title text-secondary"><i class="fa-solid fa-circle-half-stroke"></i> Shift</h6>
                                 <p class="card-text ">
-                                    Day Shift
+                                    ' . $data["shift"] . '
                                 </p>
                             </div>
                         </div>
@@ -145,14 +162,14 @@
                             <div class="col-md-6">
                                 <h6 class="card-title text-secondary"><i class="fa-solid fa-briefcase"></i> Experience</h6>
                                 <p class="card-text ">
-                                    Freshers only
+                                    ' . $data["experience"] . '
                                 </p>
                             </div>
 
                             <div class="col-md-6">
                                 <h6 class="card-title text-secondary"><i class="fa-solid fa-user-graduate"></i> Education</h6>
                                 <p class="card-text ">
-                                    Graduate
+                                    ' . $data["education"] . '
                                 </p>
                             </div>
                         </div>
@@ -161,14 +178,14 @@
                             <div class="col-md-6">
                                 <h6 class="card-title text-secondary"><i class="fa-solid fa-language"></i> English level</h6>
                                 <p class="card-text ">
-                                    Good (Intermediate / Advanced) English
+                                    ' . $data["Language"] . '
                                 </p>
                             </div>
 
                             <div class="col-md-6">
                                 <h6 class="card-title text-secondary"><i class="fa-solid fa-calendar-days"></i> Age limit</h6>
                                 <p class="card-text ">
-                                    19 - 26 years
+                                    ' . $data["agelimit"] . '
                                 </p>
                             </div>
                         </div>
@@ -177,7 +194,7 @@
                             <div class="col-md-6">
                                 <h6 class="card-title text-secondary"><i class="fa-solid fa-user"></i> Gender</h6>
                                 <p class="card-text ">
-                                    Any gender
+                                    ' . $data["gender"] . '
                                 </p>
                             </div>
                         </div>
@@ -186,7 +203,9 @@
                 </div>
             </div>
 
-        </div>
+        </div>';
+        }
+        ?>
     </div>
     </div>
     </div>

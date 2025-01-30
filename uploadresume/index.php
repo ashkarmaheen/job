@@ -246,6 +246,21 @@ $skl = $resume->skilltb();
                                             <input type="text" name="skills" id="skillsInput" class="form-control form-control-lg" hidden />
                                         </div>
 
+                                        <div data-mdb-input-init class="form-outline mb-4">
+                                            <label class="form-label" for="form3Example8">Portfolio</label>
+                                            <div class="d-flex gap-3">
+                                                <div class="w-50">
+                                                    <label class="form-label" for="form3Example8">link</label>
+                                                    <input type="text" name="linkone" id="form3Example8" class="form-control form-control-lg" />
+                                                </div>
+
+                                                <div class="w-50">
+                                                    <label class="form-label" for="form3Example8">link 2</label>
+                                                    <input type="text" name="linktwo" id="form3Example8" class="form-control form-control-lg" />
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     </div>
 
                                 </div>

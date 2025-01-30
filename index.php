@@ -3,7 +3,14 @@
 require("queary.php");
 $namectry = $home->getcategory();
 
-print_r($namectry);
+
+
+
+if (isset($_POST["submit"])) {
+  unset($_SESSION['logined']);
+  header("location:userauth/login.php");
+}
+
 
 ?>
 
@@ -63,6 +70,18 @@ print_r($namectry);
                 </div>
               </button>
             </a>
+
+            <a href="profile/index.php">
+
+              <div style="width:40px;height:40px;" class="ms-5">
+                <img class="w-100" src="image/profile-user.png" alt="profileimage" class="rounded-circle">
+              </div>
+
+            </a>
+            <form action="" method="post">
+              <button type="submit" name="submit">log out</button>
+            </form>
+
             </form>
           </div>
         </div>
@@ -138,7 +157,7 @@ print_r($namectry);
     <div class="container px-0">
       <div class="row gx-4">
         <div class="col-12 col-sm-6 clo-md-3 col-lg-3 col-xl-3 col-xxl-3 pt-2">
-          <div class="card">
+          <div class="card cards">
             <i class="fa-solid fa-user ps-3 pt-4 searchicon"></i>
             <div class="card-body">
               <h5 class="card-title mt-3">Create Profile</h5>
@@ -152,7 +171,7 @@ print_r($namectry);
         </div>
 
         <div class="col-12 col-sm-6 clo-md-3 col-lg-3 col-xl-3 col-xxl-3 pt-2">
-          <div class="card">
+          <div class="card cards">
             <i class="fa-solid fa-magnifying-glass ps-3 pt-4 searchicon"></i>
             <div class="card-body">
               <h5 class="card-title mt-3">Search Job</h5>
@@ -166,7 +185,7 @@ print_r($namectry);
         </div>
 
         <div class="col-12 col-sm-6 clo-md-3 col-lg-3 col-xl-3 col-xxl-3 pt-2">
-          <div class="card">
+          <div class="card cards">
             <i class="fa-solid fa-file ps-3 pt-4 searchicon"></i>
             <div class="card-body">
               <h5 class="card-title mt-3">Upload CV / Resum </h5>
@@ -180,7 +199,7 @@ print_r($namectry);
         </div>
 
         <div class="col-12 col-sm-6 clo-md-3 col-lg-3 col-xl-3 col-xxl-3 pt-2">
-          <div class="card">
+          <div class="card cards">
             <i class="fa-solid fa-suitcase ps-3 pt-4 searchicon"></i>
             <div class="card-body">
               <h5 class="card-title mt-3">Get Job</h5>
@@ -218,7 +237,7 @@ print_r($namectry);
           echo '<a href="companies?category=' . $roles . '" style="text-decoration:none;">
           <div class="item">
             <div class="col-12 col-sm-12 clo-md-12 col-lg-12 col-xl-12 col-xxl-12">
-              <div class="card">
+              <div class="card cards">
                 <div class="card-body px-0">
                   <h3 class="card-title mt-2 ms-4">' . $roles . '
                     <i class="fa-solid fa-chevron-right fa-fade mt-2 ms-2"></i>
@@ -292,7 +311,7 @@ print_r($namectry);
 
               </div>
               <div class=" col-md-12 col-lg-0 col-xl-12 col-xxl-12 ms-0 pt-2 pb-2 jobscard">
-                <div class="card col-sm-12 clo-md-12 col-lg-0 col-xl-12 col-xxl-12 px-1 align-items-center jobcardborder">
+                <div class="card cards col-sm-12 clo-md-12 col-lg-0 col-xl-12 col-xxl-12 px-1 align-items-center jobcardborder">
                   <div class="card-body">
                     <h4 class="card-title">Fullstack Developer</h4>
                     <p class="card-text">600 Jobs

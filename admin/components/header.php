@@ -1,3 +1,11 @@
+<?php
+
+if (isset($_POST["logoutbtn"])) {
+  unset($_SESSION['logined']);
+  header("location:../../auth/login.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -71,6 +79,12 @@
         <a href="../skills/index.php">
           <button type="button" class="btn btn-outline-primary mb-2 p-2" style="width: 100%;">Roles</button>
         </a>
+      </li>
+      <li>
+
+        <form action="" method="post">
+          <button type="submit" name="logoutbtn" class="btn btn-outline-primary mb-2 p-2" style="width: 100%;">Log Out</button>
+        </form>
       </li>
     </ul>
   </div>

@@ -26,6 +26,8 @@ class uploadresume extends DBcon
     public $lang;
     public $img;
     public $skilltable;
+    public $linkone;
+    public $linktwo;
 
 
 
@@ -61,6 +63,8 @@ class uploadresume extends DBcon
             $this->language = $_POST['languages'];
             $this->role = $_POST['role'];
             $this->skills = $_POST['skills'];
+            $this->linkone = $_POST['linkone'];
+            $this->linktwo = $_POST['linktwo'];
 
             $img = "../image/";
 
@@ -79,8 +83,8 @@ class uploadresume extends DBcon
 
 
             try {
-                $req = "INSERT INTO resume(image,firstname,lastname,email,phone,address,gender,state,city,dob ,pincode, aboutme, school, schooldate, Degree, Degreedate, language, role, skills) 
-                value('$ff','$this->firstname','$this->lastname','$this->email','$this->phone','$this->address','$this->gender','$this->state','$this->city','$this->dob','$this->pincode','$this->aboutme','$this->school','$this->schooldate','$this->degree','$this->degreedate','$this->language','$this->role','$this->skills')";
+                $req = "INSERT INTO resume(image,firstname,lastname,email,phone,address,gender,state,city,dob ,pincode, aboutme, school, schooldate, Degree, Degreedate, language, role, skills,linkone,linktwo) 
+                value('$ff','$this->firstname','$this->lastname','$this->email','$this->phone','$this->address','$this->gender','$this->state','$this->city','$this->dob','$this->pincode','$this->aboutme','$this->school','$this->schooldate','$this->degree','$this->degreedate','$this->language','$this->role','$this->skills','$this->linkone','$this->linktwo')";
                 $this->con->exec($req);
             } catch (PDOException $e) {
                 echo $req . "<br>" . $e->getMessage();
