@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (isset($_SESSION['logined'])) {
+  header("location:../admin/dashboard/index.php");
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,6 +23,13 @@
         <div class="col-12 col-md-8 col-lg-6 col-xl-5">
           <div class="card bg-dark text-white" style="border-radius: 1rem;">
             <div class="card-body p-5 ">
+              <?php
+
+              if (isset($_SESSION['loginerror'])) {
+                echo '<div>fhiho8higf8g</div>';
+              }
+              ?>
+
               <form method="post" action="loginauth.php">
                 <div class="mb-md-4 mt-md-4">
 
@@ -43,7 +58,7 @@
               </form>
 
               <div class="text-center">
-                <p class="mb-0">Don't have an account? <a href="/job/signup.php" class="text-white-50 fw-bold">Sign Up</a>
+                <p class="mb-0">Don't have an account? <a href="signup.php" class="text-white-50 fw-bold">Sign Up</a>
                 </p>
               </div>
 

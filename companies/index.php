@@ -1,12 +1,9 @@
 <?php
 
-
-
-
 require("queary.php");
 $data = $company->getcompanies();
 
-print_r($data);
+
 ?>
 
 
@@ -23,21 +20,24 @@ print_r($data);
 <body>
     <div class="container">
         <div>
-            <h1 class="h3 mb-0 text-gray-800 mt-2">142 + search results</h1>
+            <?php
+            require("../componants/header.php");
+            ?>
         </div>
 
 
         <?php
 
         foreach ($data as $data) {
+
+            $id = $data['id'];
             echo '<div class="mt-4">
-            <a href="../details/index.php" style="text-decoration:none;">
+            <a href="../details?id=' . $id . '" style="text-decoration:none;">
 
                 <div class="card mb-3">
                     <div class="row g-0">
                         <div class="col-md-2">
-                        
-                            <img style="width:100%;" src=" ' . $data["image"] . '" />
+                            <img style="width:100%;" src="' . $data["image"] . '" />
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">

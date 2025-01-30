@@ -1,4 +1,7 @@
 <?php
+
+use FontLib\Table\Type\head;
+
 require("../lib/db.php");
 class log extends DBcon
 {
@@ -31,9 +34,14 @@ class log extends DBcon
                 $this->login->execute();
 
                 if ($this->login->fetchColumn()) {
-                    echo "hello";
+                    if (isset($_SESSION['loginerror'])) {
+                        unset($_SESSION['loginerror']);
+                    }
+                    $_SESSION['logined'] = "hello";
+                    header("location:../admin/dashboard/index.php");
                 } else {
-                    echo "error";
+                    $_SESSION['loginerror'] = "hello";
+                    header("location:login.php");
                 }
             } catch (PDOException $e) {
                 echo "Error: " . $e->getMessage();
