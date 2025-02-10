@@ -1,24 +1,30 @@
 
 <?php
-// Include autoloader 
 require_once '../lib/dompdf/autoload.inc.php';
 
-// Reference the Dompdf namespace 
 use Dompdf\Dompdf;
-
+use Dompdf\Options;
 // Instantiate and use the dompdf class 
-$dompdf = new Dompdf();
 
-$html = file_get_contents('../resume/index.php');
-$dompdf->loadHtml($html);
+ob_start();
+include '../resume/index.php';
+$html = ob_get_clean();
+
+$options = new Options();
+$options->setIsPhpEnabled(true);
+$dompdf = new Dompdf($options);
+define('DOMPDF_ENABLE_PHP', true);
+
+$html = file_get_contents($html);
+
+$dompdf->loadHtml(html_entity_decode($html));
 
 // (Optional) Setup the paper size and orientation 
 $dompdf->setPaper('A4', 'portrait');
 
-// Render the HTML as PDF 
-$dompdf->render();
 
-// Output the generated PDF to Browser 
+$dompdf->render();
+ob_end_clean();
 $dompdf->stream();
 
 ?>

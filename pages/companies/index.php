@@ -46,34 +46,34 @@ $data = $company->getcompanies();
                                     ' . $data['companyname'] . '
                                 </p>
                                 <p class="card-text">
-                                    <small class="text-muted"><i class="fa-solid fa-location-dot"></i>' . $data['location'] . '</small>
+                                    <div class="text-muted "><i class="fa-solid fa-location-dot me-1"></i>' . $data['location'] . '</div>
                                 </p>
                                 <div class="card-text d-flex w-25 gap-2">
-                                    <p><i class="fa-solid fa-indian-rupee-sign"></i>' . $data['fixed'] . '</p>
+                                    <p><i class="fa-solid fa-indian-rupee-sign me-1"></i>' . $data['fixed'] . '</p>
                                     <p>To</p>
-                                    <p><i class="fa-solid fa-indian-rupee-sign"></i>' . $data['earningpotential'] . '</p>
+                                    <p><i class="fa-solid fa-indian-rupee-sign me-1"></i>' . $data['earningpotential'] . '</p>
                                 </div>
                                 <div class="d-flex" style="justify-content:space-between;">
-                                    <div class="p-1 rounded" style="background-color:#dcdcdc;color:#686868;display: flex;align-items: center;justify-content: center;">
+                                    <div class="p-2 rounded" style="background-color:#dcdcdc;color:#686868;display: flex;align-items: center;justify-content: center;">
                                         <div class="me-1"><i class="fa-solid fa-building"></i></div>
                                         <p class="card-text">' . $data['workmode'] . '</p>
 
                                     </div>
 
                                     <div class="p-1 rounded" style="background-color:#dcdcdc;color:#686868;display: flex;align-items: center;justify-content: center;">
-                                        <div class="p-1" style="background-color:#dcdcdc;color:#686868;display: flex;align-items: center;justify-content: center;">
+                                        <div class="p-2" style="background-color:#dcdcdc;color:#686868;display: flex;align-items: center;justify-content: center;">
                                             <div class="me-1"><i class="fa-regular fa-clock"></i></div>
                                             <p class="card-text">' . $data['employmenttype'] . '</p>
                                         </div>
 
                                     </div>
 
-                                    <div class="p-1 rounded" style="background-color:#dcdcdc;color:#686868;display: flex;align-items: center;justify-content: center;">
+                                    <div class="p-2 rounded" style="background-color:#dcdcdc;color:#686868;display: flex;align-items: center;justify-content: center;">
                                         <div class="me-1"><i class="fa-solid fa-calendar"></i></div>
                                         <p class="card-text">' . $data['experience'] . '</p>
                                     </div>
 
-                                    <div class="p-1 rounded" style="background-color:#dcdcdc;color:#686868;display: flex;align-items: center;justify-content: center;">
+                                    <div class="p-2 w rounded" style="background-color:#dcdcdc;color:#686868;display: flex;align-items: center;justify-content: center;">
                                         <div class="me-1"><i class="fa-solid fa-language"></i></div>
                                         <p class="card-text">' . $data['Language'] . '</p>
                                     </div>

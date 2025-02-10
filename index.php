@@ -2,8 +2,7 @@
 
 require("queary.php");
 $namectry = $home->getcategory();
-
-
+$type = $home->searchcategory();
 
 
 if (isset($_POST["submit"])) {
@@ -78,9 +77,7 @@ if (isset($_POST["submit"])) {
               </div>
 
             </a>
-            <form action="" method="post">
-              <button type="submit" name="submit">log out</button>
-            </form>
+
 
             </form>
           </div>
@@ -102,29 +99,21 @@ if (isset($_POST["submit"])) {
               on your interest and study mojor</h5>
           </div>
           <div class="container">
-            <div class="row col col-sm-12 clo-md-12 col-lg-12 col-xl-12 col-xxl-12 mt-4 search">
+            <div class="row col col-sm-12 clo-md-12 col-lg-12 col-xl-12 col-xxl-12 mt-4 gap-2">
               <div class="col-4 px-0 searchbox">
 
                 <div class="col-12 d-flex align-items-center justify-content-center textbox ">
-                  <h5>Location</h5>
+                  <h5>category</h5>
                 </div>
                 <form class="d-flex input-group-lg" role="search">
-                  <input class="form-control me-0 text-center searchtext" type="search" placeholder="Enter Location" aria-label="Search">
+                  <input class="form-control me-0 text-center searchtext" type="search" placeholder="Enter category" aria-label="Search">
                 </form>
               </div>
-              <div class="col-4 px-0 searchbox">
 
-                <div class="col-12 d-flex align-items-center justify-content-center textbox ">
-                  <h5>Type</h5>
-                </div>
-                <form class="d-flex input-group-lg" role="search">
-                  <input class="form-control me-0 text-center searchtext" type="search" placeholder="Enter type of job" aria-label="Search">
-                </form>
-              </div>
               <div class="d-flex col-3 px-0 align-items-end searchbox">
 
                 <div class="d-grid">
-                  <button type="button" class="btn  btn-primary btn-lg text-center pb-1 ps-2 mb-1">
+                  <button type="button" class="btn  btn-primary btn-lg text-center pb-2 ps-2 ">
                     <i class="fa-solid fa-magnifying-glass"></i>
                     Search</button>
                 </div>
@@ -229,12 +218,13 @@ if (isset($_POST["submit"])) {
 
   <div class=" container">
     <div class="row">
+
       <div class="owl-carousel owl-theme owl-nav companymove">
         <?php
 
         foreach ($namectry as $namectry) {
           $roles = $namectry["roles"];
-          echo '<a href="companies?category=' . $roles . '" style="text-decoration:none;">
+          echo '<a href="pages/companies/?category=' . $roles . '" style="text-decoration:none;">
           <div class="item">
             <div class="col-12 col-sm-12 clo-md-12 col-lg-12 col-xl-12 col-xxl-12">
               <div class="card cards">
@@ -286,6 +276,7 @@ if (isset($_POST["submit"])) {
       </div>
       <div class="col-sm-12 clo-md-12 col-lg-0 col-xl-7 col-xxl-7 px-0 job">
         <div class="owl-carousel owl-theme owl-nav jobmove">
+
           <div class="item">
             <div class="row">
               <div class=" col-md-12 col-lg-0 col-xl-12 col-xxl-12 ms-0 pt-2 pb-2 jobscard">

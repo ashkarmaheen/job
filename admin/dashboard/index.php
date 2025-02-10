@@ -3,6 +3,14 @@ session_start();
 if (!isset($_SESSION['logined'])) {
     header("location:../../auth/login.php");
 }
+
+require("query.php");
+$chartdata = $conjob->jobcndt();
+$totaljob = $conjob->joblistcout();
+$totalcategory = $conjob->ctrycount();
+$rolechart = $conjob->rolespeax();
+
+
 ?>
 
 <!DOCTYPE html>
@@ -53,7 +61,12 @@ if (!isset($_SESSION['logined'])) {
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 Posted Job</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">1.2k</div>
+                                            <?php foreach ($totaljob as $totaljob) {
+                                                echo '
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                             ' . $totaljob["count"] . '
+                                             </div>';
+                                            } ?>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -111,8 +124,14 @@ if (!isset($_SESSION['logined'])) {
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Interviews</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">100</div>
+                                                category</div>
+                                            <?php
+                                            foreach ($totalcategory as $totalcategory) {
+                                                echo ' <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                              ' . $totalcategory["count"] . '
+                                            </div>';
+                                            }
+                                            ?>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -132,13 +151,13 @@ if (!isset($_SESSION['logined'])) {
 
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Job Views</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Job Posting Date</h6>
 
                                 </div>
 
                                 <div class="card-body">
                                     <div class="chart-area">
-                                        <canvas id="myAreaChart"></canvas>
+                                        <div id="myAreaChart"></div>
                                     </div>
                                 </div>
                             </div>
@@ -150,13 +169,13 @@ if (!isset($_SESSION['logined'])) {
 
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">inter views</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Top Job Categories by Postings</h6>
 
                                 </div>
 
                                 <div class="card-body">
                                     <div class="chart-pie pt-4 pb-2">
-                                        <canvas id="myPieChart"></canvas>
+                                        <div id="myPieChart"></div>
                                     </div>
 
                                 </div>
@@ -180,6 +199,68 @@ if (!isset($_SESSION['logined'])) {
     </div>
 
 
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script>
+        var options = {
+            series: [{
+                name: "Desktops",
+                data: <?php echo json_encode($conjob->jobcndt()['num_of_rows']) ?>,
+            }],
+            chart: {
+                height: 350,
+                type: 'line',
+                zoom: {
+                    enabled: false
+                }
+            },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                curve: 'straight'
+            },
+            title: {
+                text: 'Months',
+                align: 'left'
+            },
+            grid: {
+                row: {
+                    colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                    opacity: 0.5
+                },
+            },
+            xaxis: {
+                categories: <?php echo json_encode($conjob->jobcndt()['date']) ?>,
+            }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#myAreaChart"), options);
+        chart.render();
+
+
+
+        var optionss = {
+            series: <?php echo json_encode($conjob->rolespeax()['num_of_category']) ?>,
+            labels: <?php echo json_encode($conjob->rolespeax()['category']) ?>,
+            chart: {
+                type: 'donut',
+            },
+            responsive: [{
+                breakpoint: 480,
+                options: {
+                    chart: {
+                        width: 200
+                    },
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }]
+        };
+
+        var charts = new ApexCharts(document.querySelector("#myPieChart"), optionss);
+        charts.render();
+    </script>
 
 
     <script src="../../javascript/script.js"></script>
