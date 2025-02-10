@@ -14,6 +14,7 @@ $data = $company->getcompanies();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>details</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
 </head>
 
 <body>
@@ -50,38 +51,38 @@ $data = $company->getcompanies();
                             </div>
 
                             <div class="rounded px-3 py-2 d-flex mt-3" style="background-color:#edebee80;justify-content:space-around;">
-                                <div>
+                                <div class="text-center">
                                     <p class="card-text m-0">Fixed</p>
-                                    <p class="card-text "><i class="fa-solid fa-indian-rupee-sign"></i>' . $data["fixed"] . '</p>
+                                    <p class="card-text "> <i class="fa-solid fa-indian-rupee-sign me-1"></i>' . $data["fixed"] . '</p>
                                 </div>
 
-                                <div>
+                                <div class="text-center">
                                     <p class="card-text m-0">Earning Potential</p>
-                                    <p class="card-text "><i class="fa-solid fa-indian-rupee-sign"></i>' . $data["earningpotential"] . '</p>
+                                    <p class="card-text "><i class="fa-solid fa-indian-rupee-sign me-1"></i>' . $data["earningpotential"] . '</p>
                                 </div>
                             </div>
 
                             <div class="d-flex mt-3" style="justify-content:space-between;">
-                                <div class="p-1" style="background-color:#dcdcdc;color:#686868;display: flex;align-items: center;justify-content: center;border-radius: 3px">
+                                <div class="p-2" style="background-color:#dcdcdc;color:#686868;display: flex;align-items: center;justify-content: center;border-radius: 3px">
                                     <div class="me-1"><i class="fa-solid fa-building"></i></div>
                                     <p class="card-text">' . $data["workmode"] . '</p>
 
                                 </div>
 
                                 <div class="p-1" style="background-color:#dcdcdc;color:#686868;display: flex;align-items: center;justify-content: center;border-radius: 3px">
-                                    <div class="p-1" style="background-color:#dcdcdc;color:#686868;display: flex;align-items: center;justify-content: center;">
+                                    <div class="p-2" style="background-color:#dcdcdc;color:#686868;display: flex;align-items: center;justify-content: center;">
                                         <div class="me-1"><i class="fa-regular fa-clock"></i></div>
                                         <p class="card-text">' . $data["employmenttype"] . '</p>
                                     </div>
 
                                 </div>
 
-                                <div class="p-1" style="background-color:#dcdcdc;color:#686868;display: flex;align-items: center;justify-content: center;border-radius: 3px">
+                                <div class="p-2" style="background-color:#dcdcdc;color:#686868;display: flex;align-items: center;justify-content: center;border-radius: 3px">
                                     <div class="me-1"><i class="fa-solid fa-calendar"></i></div>
                                     <p class="card-text">' . $data["experience"] . '</p>
                                 </div>
 
-                                <div class="p-1" style="background-color:#dcdcdc;color:#686868;display: flex;align-items: center;justify-content: center;border-radius: 3px">
+                                <div class="p-2" style="background-color:#dcdcdc;color:#686868;display: flex;align-items: center;justify-content: center;border-radius: 3px">
                                     <div class="me-1"><i class="fa-solid fa-language"></i></div>
                                     <p class="card-text">' . $data["Language"] . '</p>
                                 </div>

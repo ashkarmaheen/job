@@ -62,9 +62,9 @@
 
                                         foreach ($ff as $tb) {
                                             echo "<tr>
-                                            <td>'" . $tb["username"] . "'</td>
+                                            <td>" . $tb["username"] . "</td>
                                             
-                                            <td>'" . $tb["email"] . "'</td>
+                                            <td>" . $tb["email"] . "</td>
                                         </tr>";
                                         }
                                         ?>

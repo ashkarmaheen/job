@@ -5,6 +5,8 @@ class home extends DBcon
 
 
     public $carosil;
+    public $serctry;
+
     public function __construct()
     {
         $this->dbConnect();
@@ -25,7 +27,25 @@ class home extends DBcon
             echo "Error: " . $e->getMessage();
         }
     }
+
+    public function searchcategory()
+    {
+
+
+        try {
+            $this->serctry = $this->con->prepare("SELECT * FROM  category ");
+            $this->serctry->execute();
+
+            $result = $this->serctry->setFetchMode(PDO::FETCH_ASSOC);
+            $tb = $this->serctry->fetchAll();
+
+            return ($tb);
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+        }
+    }
 }
 
 $home = new home();
 $home->getcategory();
+$home->searchcategory();
