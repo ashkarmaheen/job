@@ -2,7 +2,6 @@
 require("queary.php");
 $data = $profile->profn();
 
-print_r($data);
 ?>
 
 <!DOCTYPE html>
@@ -43,19 +42,20 @@ print_r($data);
                                 <p class="font-italic mb-1">Web Developer</p>
                                 <p class="font-italic mb-1">ashkar@gmail.com</p>
                                 <p class="font-italic mb-0">9980956175</p>
+
                             </div>
 
                             <div class="d-flex justify-content-between align-items-center mt-3 mb-2 text-body">
-                                <h3>Resume</h3>
+                                <h3>View Resume & Download</h3>
 
                             </div>
                             <?php
                             foreach ($data as $data) {
-                                echo ' <div class="mb-3" style="background-color:#fcf7f354;">
+                                echo ' <div id="hideresume" class="mb-3 d-none" style="background-color:#fcf7f354;">
                                 <div class="bg-black w-100 d-flex" style="height:180px;">
                                     <div class="w-50  p-4" style="height:180px;">
                                         <div class="bg-white" style="height:130px;width:130px;">
-                                        <img style="width:100%;" src="' . $data["image"] . '"/>
+                                        <img style="width:89%;" src="' . $data["image"] . '"/>
                                         </div>
                                     </div>
                                     <div class="w-50 text-white p-5">
@@ -151,9 +151,10 @@ print_r($data);
                             ?>
 
                             <div class="text-center">
-                                <a href="fpdf.php">
-                                    <button type="button" class="btn btn-success">Download</button>
+                                <a href="fpdf.php" style="text-decoration:none;">
+                                    <button type="button" name="download" class="btn btn-success">Download</button>
                                 </a>
+                                <button type="button" name="hide" class="btn btn-success">View Resume</button>
                             </div>
                         </div>
 
@@ -162,6 +163,17 @@ print_r($data);
             </div>
         </div>
     </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelector('button[name="hide"]').addEventListener("click", function() {
+                let resumeDiv = document.getElementById("hideresume");
+                if (resumeDiv) {
+                    resumeDiv.classList.toggle("d-none");
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

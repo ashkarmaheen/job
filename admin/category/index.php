@@ -26,9 +26,19 @@ print_r($editbutton);
     <title>category</title>
     <link href="../main.css/sb-admin-2.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        @font-face {
+            font-family: navfont;
+            src: url(../../font/Poppins-Medium.ttf);
+        }
+
+        .fontsmain {
+            font-family: navfont;
+        }
+    </style>
 </head>
 
-<body id="page-top">
+<body id="page-top" class="fontsmain">
 
     <?php
     if (isset($_POST["edit"])) {
@@ -69,7 +79,7 @@ print_r($editbutton);
 
                 <div class="container-fluid">
                     <div class="d-flex my-3 justify-content-between">
-                        <h1 class="h3 mb-2 text-gray-800">Job Categorys</h1>
+                        <h4 class=" mb-2 text-gray-800">Job Categorys</h4>
                         <form class="d-flex" method="post" action="queary.php">
                             <input type="text" name="categoryname" class="form-control me-2" placeholder="Type New Category" aria-label="Search" style="width: 250px;" />
                             <button class="btn btn-outline-primary" type="submit" name="submit">Add Category <i class="fa-solid fa-layer-group"></i></button>
@@ -78,7 +88,7 @@ print_r($editbutton);
 
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Category List</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -99,7 +109,7 @@ print_r($editbutton);
                                                  <td style='text-align: center;'>" . $tb["id"] . "</td>
                                             <td>" . $tb["categoryname"] . "</td>
                                             <td>
-                                            <div class='text-center gap-3 d-flex'>
+                                            <div class=' gap-3 d-flex' style='justify-content: center;'>
                                             <form method='post' action=''>
                                             <button type='submit' name='edit' value='" . $tb["id"] . "' class='btn btn-primary mr-3' data-mdb-ripple-init>
                                             <i class='fa-solid fa-pen-to-square'></i></button>

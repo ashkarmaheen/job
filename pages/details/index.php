@@ -4,7 +4,10 @@ require("queary.php");
 $data = $company->getcompanies();
 
 
+
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -35,7 +38,7 @@ $data = $company->getcompanies();
                         <div class="card-body">
                             <div class="d-flex mb-2">
                                 <div class="bg-secondary  me-2" style="width:100px;height:100px;">
-                                <img style="width:100%;" src="' . $data["image"] . '" />
+                                <img style="width:100%;" src="../../' . $data["image"] . '" />
                                 </div>
                                 <div>
                                     <h2 class="card-title">' . $data["jobtype"] . '</h2>

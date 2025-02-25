@@ -4,6 +4,7 @@ require("queary.php");
 $data = $company->getcompanies();
 
 
+
 ?>
 
 
@@ -37,7 +38,7 @@ $data = $company->getcompanies();
                 <div class="card mb-3">
                     <div class="row g-0">
                         <div class="col-md-2">
-                            <img style="width:100%;" src="' . $data["image"] . '" />
+                            <img style="width:100%;" src="../../' . $data["image"] . '" />
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">

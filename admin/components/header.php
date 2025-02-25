@@ -21,35 +21,31 @@ if (isset($_POST["logoutbtn"])) {
       left: -280px;
       transition: left 0.3s ease;
     }
+
+    @font-face {
+      font-family: navfont;
+      src: url(../../font/Poppins-Medium.ttf);
+    }
+
+    .dd {
+      font-family: navfont;
+    }
   </style>
 </head>
 
 <body>
-  <header class="py-2 border-bottom">
-    <div class="container">
-      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-between">
-        <div class="d-flex">
-          <div style="margin-right:95px;">
-            <h3 class="m-0">JOBIN</h3>
-          </div>
-          <button type="button" class="btn me-2" onclick="sidebarfn()">
-            <i class="fa-solid fa-bars fa-xl"></i>
-          </button>
-        </div>
+  <header class="py-2 px-3 border-bottom">
 
-        <div class="d-flex">
-          <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-5 d-flex">
-            <input type="search" class="form-control me-2" placeholder="Search..." aria-label="Search">
-            <button class="btn btn-outline-primary" type="submit">Search</button>
-          </form>
-
-          <div class="dropdown text-end">
-            <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" aria-expanded="false">
-              <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
-            </a>
-          </div>
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-between">
+      <div class="d-flex">
+        <div style="margin-right:30px;">
+          <h3 class="m-0 text-primary dd">JOBIN</h3>
         </div>
+        <button type="button" class="btn me-2" onclick="sidebarfn()">
+          <i class="fa-solid fa-bars fa-xl "></i>
+        </button>
       </div>
+
     </div>
   </header>
 

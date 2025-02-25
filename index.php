@@ -5,6 +5,7 @@ $namectry = $home->getcategory();
 $type = $home->searchcategory();
 
 
+
 if (isset($_POST["submit"])) {
   unset($_SESSION['logined']);
   header("location:userauth/login.php");
@@ -35,14 +36,16 @@ if (isset($_POST["submit"])) {
     <div class="row">
       <nav class="navbar navbar-expand-lg  px-0">
         <div class="container">
-          <a class="navbar-brand" href="#">JONBIN</a>
+          <a class="navbar-brand fw-bold" href="index.php">JONBIN</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-auto textnav">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Find a Job</a>
+                <?php
+                echo ' <a class="nav-link active" aria-current="page" href="pages/companies/?category=""">Find a Job</a>'
+                ?>
               </li>
               <li class="nav-item">
                 <a class="nav-link ps-5" href="#">About</a>
@@ -62,12 +65,8 @@ if (isset($_POST["submit"])) {
               </li>
             </ul>
 
-            <a href="../job/uploadresume/index.php">
-              <button class="btn btn-outline-success buttoncol textnav pt-2 ps-3" type="submit">Upload Resume
-                <div class="box ">
-                  <img src="image/upload_3114955.png" class="image">
-                </div>
-              </button>
+            <a href="uploadresume/index.php">
+              <button class="btn btn-outline-success buttoncol textnav" type="submit">Upload Resume <i class="fa-solid fa-arrow-up-from-bracket ps-2"></i></button>
             </a>
 
             <a href="profile/index.php">
@@ -90,36 +89,38 @@ if (isset($_POST["submit"])) {
         <div class=" col-12 col-sm-12 clo-md-12 col-lg-12 col-xl-8 col-xxl-7 mt-3 px-0 bannerbox">
           <div class=" col-12 bannerhead">
 
-            <h1 class="bannertext">Search,Apply &
+            <h3 class="bannertext mt-5">Search,Apply &
               Get Your
-              Dream Job</h1>
+              Dream Job</h3>
           </div>
           <div class="col-11 mt-4 bannersub">
             <h5 class="bannersubtext">Explore all the most exciting job roles based
               on your interest and study mojor</h5>
           </div>
           <div class="container">
-            <div class="row col col-sm-12 clo-md-12 col-lg-12 col-xl-12 col-xxl-12 mt-4 gap-2">
-              <div class="col-4 px-0 searchbox">
+            <?php
 
-                <div class="col-12 d-flex align-items-center justify-content-center textbox ">
-                  <h5>category</h5>
-                </div>
-                <form class="d-flex input-group-lg" role="search">
-                  <input class="form-control me-0 text-center searchtext" type="search" placeholder="Enter category" aria-label="Search">
-                </form>
-              </div>
 
-              <div class="d-flex col-3 px-0 align-items-end searchbox">
+            $category = isset($namectry["roles"]) ? $namectry["roles"] : '';
+            $id = isset($namectry["id"]) ? $namectry["id"] : '';
 
-                <div class="d-grid">
-                  <button type="button" class="btn  btn-primary btn-lg text-center pb-2 ps-2 ">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    Search</button>
-                </div>
-
-              </div>
+            echo '<form method="get" action="/job/pages/companies/?category=' . $category . '">
+        <div class="mb-3 col-12 col-sm-11 col-md-7 col-lg-6 col-xl-6 col-xxl-6 mt-3">
+            <label for="categoryInput" class="form-label" style="font-weight: 700; font-size: 20px;">Category</label>
+            <div class="d-flex gap-2">
+                <input type="text" id="categoryInput" name="category" autocomplete="off"  class="form-control" />
+                
+                <button type="submit"  class="btn btn-primary btn-lg d-flex">
+                    <i class="fa-solid fa-magnifying-glass me-2 mt-1"></i>Search
+                </button>
             </div>
+            <div>
+                <ul id="vehicle-output" class="p-0 rounded" style="cursor:pointer;"></ul>
+            </div>
+        </div>
+    </form>';
+
+            ?>
           </div>
         </div>
         <div class="mt-3 col-0 col-sm-12 clo-md-12 col-lg-12 col-xl-4 col-xxl-5 bannerbox">
@@ -164,11 +165,7 @@ if (isset($_POST["submit"])) {
             <i class="fa-solid fa-magnifying-glass ps-3 pt-4 searchicon"></i>
             <div class="card-body">
               <h5 class="card-title mt-3">Search Job</h5>
-              <p class="card-text">Singnup for the job applicant
-                profile mention your qualifications.
-                post experiences and expertise, and
-                scope your interestsn voila you're
-                all set to find your dream job </p>
+              <p class="card-text">Once you set your job hunting parameters, you'll find many openings related to your career interest on the home page and even filter out some of the best job openings. </p>
             </div>
           </div>
         </div>
@@ -178,11 +175,7 @@ if (isset($_POST["submit"])) {
             <i class="fa-solid fa-file ps-3 pt-4 searchicon"></i>
             <div class="card-body">
               <h5 class="card-title mt-3">Upload CV / Resum </h5>
-              <p class="card-text">Singnup for the job applicant
-                profile mention your qualifications.
-                post experiences and expertise, and
-                scope your interestsn voila you're
-                all set to find your dream job </p>
+              <p class="card-text">From numerous job openings, shortlist the right-match vacancy to your profile and opply right after by uploading your CV/ Resume and answering a couple of questions, if any,</p>
             </div>
           </div>
         </div>
@@ -192,11 +185,7 @@ if (isset($_POST["submit"])) {
             <i class="fa-solid fa-suitcase ps-3 pt-4 searchicon"></i>
             <div class="card-body">
               <h5 class="card-title mt-3">Get Job</h5>
-              <p class="card-text">Singnup for the job applicant
-                profile mention your qualifications.
-                post experiences and expertise, and
-                scope your interestsn voila you're
-                all set to find your dream job </p>
+              <p class="card-text">After applying, wait for some time, schedule an interview, and if everything goes right, then get hired more quickly than traditional hiring methods. </p>
             </div>
           </div>
         </div>
@@ -224,27 +213,29 @@ if (isset($_POST["submit"])) {
 
         foreach ($namectry as $namectry) {
           $roles = $namectry["roles"];
+          $image = $namectry["image"];
+
           echo '<a href="pages/companies/?category=' . $roles . '" style="text-decoration:none;">
           <div class="item">
             <div class="col-12 col-sm-12 clo-md-12 col-lg-12 col-xl-12 col-xxl-12">
-              <div class="card cards">
-                <div class="card-body px-0">
-                  <h3 class="card-title mt-2 ms-4">' . $roles . '
+              <div class="card cards ">
+                <div class="card-body ">
+                  <h3 class="card-title ">' . $roles . '
                     <i class="fa-solid fa-chevron-right fa-fade mt-2 ms-2"></i>
                   </h3>
-                  <p class="mt-2 ms-4">897 are active hiring</p>
+                  <p >897 are active hiring</p>
                   <div class=" d-flex col-sm-12 clo-md-12 col-lg-12 col-xl-12 col-xxl-12  Companybox">
 
                     <div class="col-4 col-sm-4 clo-md-4 col-lg-4 col-xl-4 col-xxl-4 Companylogo">
-                      <img src="image/company-1.jpg" class="companyimage">
+                      <img src=' . $image . ' class="companyimage">
                     </div>
 
                     <div class="col-4 col-sm-4 clo-md-4 col-lg-4 col-xl-4 col-xxl-4 Companylogo">
-                      <img src="image/company-2.jpg" class="companyimage">
+                      <img src=' . $image . ' class="companyimage">
                     </div>
 
                     <div class="col-4 col-sm-4 clo-md-4 col-lg-4 col-xl-4 col-xxl-4 Companylogo">
-                      <img src="image/company-3.jpg" class="companyimage">
+                      <img src=' . $image . ' class="companyimage">
                     </div>
 
                   </div>
@@ -280,8 +271,8 @@ if (isset($_POST["submit"])) {
           <div class="item">
             <div class="row">
               <div class=" col-md-12 col-lg-0 col-xl-12 col-xxl-12 ms-0 pt-2 pb-2 jobscard">
-                <div class="card col-sm-12 clo-md-12 col-lg-0 col-xl-12 col-xxl-12 px-1 align-items-center jobcardborder">
-                  <div class="card-body">
+                <div class="card col-sm-12 clo-md-12 col-lg-0 col-xl-12 col-xxl-12 px-1 align-items-center justify-content-center jobcardborder">
+                  <div>
                     <h4 class="card-title">Fullstack Developer</h4>
                     <p class="card-text">600 Jobs
                       <i class="fa-solid fa-chevron-right fa-fade mt-2 ms-2" aria-hidden="true"></i>
@@ -291,8 +282,8 @@ if (isset($_POST["submit"])) {
               </div>
 
               <div class=" col-md-12 col-lg-0 col-xl-12 col-xxl-12 ms-0 pt-2 pb-2 jobscard">
-                <div class="card col-sm-12 clo-md-12 col-lg-0 col-xl-12 col-xxl-12 px-1 align-items-center jobcardborder">
-                  <div class="card-body">
+                <div class="card col-sm-12 clo-md-12 col-lg-0 col-xl-12 col-xxl-12 px-1 align-items-center justify-content-center jobcardborder">
+                  <div>
                     <h4 class="card-title">Fullstack </h4>
                     <p class="card-text">600 Jobs
                       <i class="fa-solid fa-chevron-right fa-fade mt-2 ms-2" aria-hidden="true"></i>
@@ -302,8 +293,8 @@ if (isset($_POST["submit"])) {
 
               </div>
               <div class=" col-md-12 col-lg-0 col-xl-12 col-xxl-12 ms-0 pt-2 pb-2 jobscard">
-                <div class="card cards col-sm-12 clo-md-12 col-lg-0 col-xl-12 col-xxl-12 px-1 align-items-center jobcardborder">
-                  <div class="card-body">
+                <div class="card cards col-sm-12 clo-md-12 col-lg-0 col-xl-12 col-xxl-12 px-1 align-items-center justify-content-center jobcardborder">
+                  <div>
                     <h4 class="card-title">Fullstack Developer</h4>
                     <p class="card-text">600 Jobs
                       <i class="fa-solid fa-chevron-right fa-fade mt-2 ms-2" aria-hidden="true"></i>
@@ -440,6 +431,56 @@ if (isset($_POST["submit"])) {
           nav: true,
         }
       }
+    });
+  </script>
+
+  <script>
+    $(document).ready(function() {
+      $("#categoryInput").keyup(function() {
+        var query = $(this).val();
+
+        if (query != "") {
+          $.ajax({
+            url: "query.php",
+            type: "POST",
+            data: {
+              query: query
+            },
+            success: function(response) {
+              let data = JSON.parse(response); // Expecting JSON response
+              let output = "";
+
+              if (data.length > 0) {
+                data.forEach(function(item, index) {
+                  output += `<li class="list-group-item bg-light p-3" id=${index} style="width: 65%;">${item}</li>`;
+                });
+                $("#vehicle-output").html(output).show();
+              } else {
+                $("#vehicle-output").html("").hide();
+              }
+            }
+          });
+        } else {
+          $("#vehicle-output").html("").hide();
+        }
+      });
+
+      $(document).on("click", ".list-group-item", function() {
+        $("#categoryInput").val($(this).text());
+        $("#vehicle-output").hide();
+      });
+
+      $("#categoryInput").focusout(function() {
+        setTimeout(() => {
+          $("#vehicle-output").hide();
+        }, 200);
+      });
+
+      $("#vehicle").focusin(function() {
+        if ($("#vehicle-output").children().length > 0) {
+          $("#vehicle-output").show();
+        }
+      });
     });
   </script>
 </body>
