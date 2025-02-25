@@ -21,12 +21,12 @@ class companies extends DBcon
     {
 
         try {
-            $this->compdata = $this->con->prepare("SELECT * FROM jobs where roles like '$this->category%'");
-            $this->compdata->execute();
+            $this->compdata = $this->con->prepare("SELECT * FROM jobs WHERE roles LIKE ?");
+            $this->compdata->execute(["%{$this->category}%"]);
 
             $result = $this->compdata->setFetchMode(PDO::FETCH_ASSOC);
-            $tb = $this->compdata->fetchAll();
 
+            $tb = $this->compdata->fetchAll();
 
             return ($tb);
         } catch (PDOException $e) {
@@ -36,4 +36,3 @@ class companies extends DBcon
 }
 
 $company = new companies();
-$company->getcompanies();

@@ -78,7 +78,7 @@ class table extends DBcon
         try {
             $req = "CREATE TABLE IF NOT EXISTS resume(
     id INT(10) UNSIGNED AUTO_INCREMENT  PRIMARY KEY,
-    image VARCHAR(50),
+    image VARCHAR(500),
     firstname VARCHAR(50) NOT NULL,
     lastname VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL,

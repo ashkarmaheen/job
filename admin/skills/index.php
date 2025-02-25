@@ -21,9 +21,19 @@ $editbutton = $skills->edit();
     <title>category</title>
     <link href="../main.css/sb-admin-2.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        @font-face {
+            font-family: navfont;
+            src: url(../../font/Poppins-Medium.ttf);
+        }
+
+        .fontsmain {
+            font-family: navfont;
+        }
+    </style>
 </head>
 
-<body id="page-top">
+<body id="page-top" class="fontsmain">
 
     <?php
     if (isset($_POST["edit"])) {
@@ -34,7 +44,7 @@ $editbutton = $skills->edit();
     align-items: center;
     justify-content: center;">
               <form method="post" action="queary.php" style="width:35%; background-color:#ffffff; height:200px;border-radius: 10px;padding:20px;">
-              <label for="category" class="mb-3">Edit Category</label>
+              <label for="category" class="mb-3">Edit Skill</label>
               <input type="text" name="re-edit" class="form-control me-2 w-100" value="' . $ed["skill"] . '" placeholder="" aria-label="Search" style="width: 250px;" />
               <div style="height:80px;display: flex;align-items: flex-end;justify-content: flex-end; ">
               <div>
@@ -64,7 +74,7 @@ $editbutton = $skills->edit();
 
                 <div class="container-fluid">
                     <div class="d-flex my-3 justify-content-between">
-                        <h1 class="h3 mb-2 text-gray-800">Skills</h1>
+                        <h4 class=" mb-2 text-gray-800">Skills</h4>
                         <form class="d-flex" method="post" action="queary.php">
                             <input type="text" name="newkill" class="form-control me-2" placeholder="New skills" aria-label="Search" style="width: 250px;" />
                             <button class="btn btn-outline-primary" type="submit" name="submit">Add skills<i class="fa-solid fa-layer-group"></i></button>
@@ -73,7 +83,7 @@ $editbutton = $skills->edit();
 
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Skill List</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -94,14 +104,14 @@ $editbutton = $skills->edit();
                                                  <td style='text-align: center;'>" . $tb["id"] . "</td>
                                             <td>" . $tb["skill"] . "</td>
                                             <td>
-                                            <div class='text-center gap-3 d-flex'>
+                                            <div class='justify-content-center gap-3 d-flex'>
                                             <form method='post' action=''>
-                                            <button type='submit' name='edit' value='" . $tb["id"] . "' class='btn btn-primary mr-3' data-mdb-ripple-init>
+                                            <button type='submit' name='edit' value='" . $tb["id"] . "' class='btn btn-primary ' data-mdb-ripple-init>
                                             <i class='fa-solid fa-pen-to-square'></i></button>
                                             </form>
 
                                             <form action='queary.php' method='post'>
-                                            <button type='submit' name='delete' value='" . $tb["id"] . "' class='btn btn-danger me-3' data-mdb-ripple-init>
+                                            <button type='submit' name='delete' value='" . $tb["id"] . "' class='btn btn-danger ' data-mdb-ripple-init>
                                             <i class='fa-solid fa-trash'></i></button>
                                             </form>
                                             </div>
