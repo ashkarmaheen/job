@@ -3,6 +3,7 @@
 require("queary.php");
 $namectry = $home->getcategory();
 $type = $home->searchcategory();
+$topcategory = $home->topcategory();
 
 
 
@@ -36,7 +37,10 @@ if (isset($_POST["submit"])) {
     <div class="row">
       <nav class="navbar navbar-expand-lg  px-0">
         <div class="container">
-          <a class="navbar-brand fw-bold" href="index.php">JONBIN</a>
+          <div style="width:30px;height:30px;"> <img style="width: 100%;" src="image/jobin logo.png"></div>
+          <a class="navbar-brand fw-bold ms-2" href="">
+
+            JONBIN</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -48,28 +52,16 @@ if (isset($_POST["submit"])) {
                 ?>
               </li>
               <li class="nav-item">
-                <a class="nav-link ps-5" href="#">About</a>
+                <a class="nav-link ps-5" href="pages/about/">About</a>
               </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle  ps-5" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Company Profiles
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li>
-                    <hr class="dropdown-divider">
-                  </li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </li>
+
             </ul>
 
-            <a href="uploadresume/index.php">
+            <a href="pages/uploadresume/">
               <button class="btn btn-outline-success buttoncol textnav" type="submit">Upload Resume <i class="fa-solid fa-arrow-up-from-bracket ps-2"></i></button>
             </a>
 
-            <a href="profile/index.php">
+            <a href="pages/profile/">
 
               <div style="width:40px;height:40px;" class="ms-5">
                 <img class="w-100" src="image/profile-user.png" alt="profileimage" class="rounded-circle">
@@ -227,15 +219,15 @@ if (isset($_POST["submit"])) {
                   <div class=" d-flex col-sm-12 clo-md-12 col-lg-12 col-xl-12 col-xxl-12  Companybox">
 
                     <div class="col-4 col-sm-4 clo-md-4 col-lg-4 col-xl-4 col-xxl-4 Companylogo">
-                      <img src=' . $image . ' class="companyimage">
+                      <img src="image/' . $image . '" class="companyimage">
                     </div>
 
                     <div class="col-4 col-sm-4 clo-md-4 col-lg-4 col-xl-4 col-xxl-4 Companylogo">
-                      <img src=' . $image . ' class="companyimage">
+                      <img src="image/' . $image . '" class="companyimage">
                     </div>
 
                     <div class="col-4 col-sm-4 clo-md-4 col-lg-4 col-xl-4 col-xxl-4 Companylogo">
-                      <img src=' . $image . ' class="companyimage">
+                      <img src="image/' . $image . '" class="companyimage">
                     </div>
 
                   </div>
@@ -265,49 +257,69 @@ if (isset($_POST["submit"])) {
       <div class="col-sm-12 clo-md-12 col-lg-0 col-xl-5 col-xxl- px-0 job">
         <img src="image/bwink_msc_05_single_03.png" class="jobimg">
       </div>
-      <div class="col-sm-12 clo-md-12 col-lg-0 col-xl-7 col-xxl-7 px-0 job">
-        <div class="owl-carousel owl-theme owl-nav jobmove">
-
-          <div class="item">
-            <div class="row">
-              <div class=" col-md-12 col-lg-0 col-xl-12 col-xxl-12 ms-0 pt-2 pb-2 jobscard">
-                <div class="card col-sm-12 clo-md-12 col-lg-0 col-xl-12 col-xxl-12 px-1 align-items-center justify-content-center jobcardborder">
-                  <div>
-                    <h4 class="card-title">Fullstack Developer</h4>
-                    <p class="card-text">600 Jobs
-                      <i class="fa-solid fa-chevron-right fa-fade mt-2 ms-2" aria-hidden="true"></i>
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div class=" col-md-12 col-lg-0 col-xl-12 col-xxl-12 ms-0 pt-2 pb-2 jobscard">
-                <div class="card col-sm-12 clo-md-12 col-lg-0 col-xl-12 col-xxl-12 px-1 align-items-center justify-content-center jobcardborder">
-                  <div>
-                    <h4 class="card-title">Fullstack </h4>
-                    <p class="card-text">600 Jobs
-                      <i class="fa-solid fa-chevron-right fa-fade mt-2 ms-2" aria-hidden="true"></i>
-                    </p>
-                  </div>
-                </div>
-
-              </div>
-              <div class=" col-md-12 col-lg-0 col-xl-12 col-xxl-12 ms-0 pt-2 pb-2 jobscard">
-                <div class="card cards col-sm-12 clo-md-12 col-lg-0 col-xl-12 col-xxl-12 px-1 align-items-center justify-content-center jobcardborder">
-                  <div>
-                    <h4 class="card-title">Fullstack Developer</h4>
-                    <p class="card-text">600 Jobs
-                      <i class="fa-solid fa-chevron-right fa-fade mt-2 ms-2" aria-hidden="true"></i>
-                    </p>
-                  </div>
-                </div>
-
-              </div>
+      <div class="col-sm-12 clo-md-12 col-lg-0 col-xl-7 col-xxl-7 px-0  job d-flex" style="flex-direction: column;justify-content:space-evenly;">
+        <?php
+        echo ' <div class="gap-4 d-flex ">
+          <div class="w-50 rounded p-4" style="background-color:white;border: 1px solid black;">
+            <div>
+              <h4 class="card-title">' . $topcategory[0]['roles'] . '</h4>
+              <p class="card-text">' . $topcategory[0]['role_count'] . ' Jobs'
+          . '<i class="fa-solid fa-chevron-right fa-fade mt-2 ms-2" aria-hidden="true"></i>
+              </p>
             </div>
           </div>
+          <div class="w-50 rounded p-4" style="background-color:white;border: 1px solid black;">
+            <div>
+              <h4 class="card-title">' . $topcategory[1]['roles'] . '</h4>
+              <p class="card-text">' . $topcategory[1]['role_count'] . ' Jobs'
+          . '
+                <i class="fa-solid fa-chevron-right fa-fade mt-2 ms-2" aria-hidden="true"></i>
+              </p>
+            </div>
+          </div>
+        </div>
 
+        <div class="gap-4 d-flex ">
+          <div class="w-50 rounded p-4" style="background-color:white;border: 1px solid black;">
+            <div>
+              <h4 class="card-title">' . $topcategory[2]['roles'] . '</h4>
+              <p class="card-text">' . $topcategory[2]['role_count'] . ' Jobs'
+          . '
+                <i class="fa-solid fa-chevron-right fa-fade mt-2 ms-2" aria-hidden="true"></i>
+              </p>
+            </div>
+          </div>
+          <div class="w-50 rounded p-4" style="background-color:white;border: 1px solid black;">
+            <div>
+              <h4 class="card-title">' . $topcategory[3]['roles'] . '</h4>
+              <p class="card-text">' . $topcategory[3]['role_count'] . ' Jobs'
+          . '
+                <i class="fa-solid fa-chevron-right fa-fade mt-2 ms-2" aria-hidden="true"></i>
+              </p>
+            </div>
+          </div>
+        </div>
 
-        </diV>
+        <div class="gap-4 d-flex ">
+          <div class="w-50 rounded p-4" style="background-color:white;border: 1px solid black;">
+            <div>
+              <h4 class="card-title">' . $topcategory[4]['roles'] . '</h4>
+              <p class="card-text">' . $topcategory[4]['role_count'] . ' Jobs'
+          . '
+                <i class="fa-solid fa-chevron-right fa-fade mt-2 ms-2" aria-hidden="true"></i>
+              </p>
+            </div>
+          </div>
+          <div class="w-50 rounded p-4" style="background-color:white;border: 1px solid black;">
+            <div>
+              <h4 class="card-title">Fullstack Developer</h4>
+              <p class="card-text">600 Jobs
+                <i class="fa-solid fa-chevron-right fa-fade mt-2 ms-2" aria-hidden="true"></i>
+              </p>
+            </div>
+          </div>
+        </div>'
+        ?>
       </div>
     </diV>
 
@@ -318,8 +330,9 @@ if (isset($_POST["submit"])) {
         <diV class="row">
           <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4 footer A">
 
-            <div class="col-md-12 col-lg-0 col-xl-12 col-xxl-4 mt-5 logobox">
+            <div class="col-md-12 col-lg-0 col-xl-12 col-xxl-4 mt-5 logobox d-flex">
               <h2>JOBIN</h2>
+              <div class="ms-1" style="width:35px;height:35px;margin-top:4px;"> <img style="width: 100%;" src="image/jobin logo.png"></div>
             </div>
             <div class="col-md-12 col-lg-0 col-xl-12 col-xxl-10 contact">
               <h4 class="mb-3">Connect with us</h4>
@@ -335,7 +348,9 @@ if (isset($_POST["submit"])) {
           <div class="d-flex col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 col-xxl-8 pt-5 footer B">
 
             <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 col-xxl-4 mt-5 footertext">
-              <p class="mb-3">About us</p>
+              <a href="pages/about/" style="text-decoration:none;color:#ffffff;">
+                <p class="mb-3">About us</p>
+              </a>
               <p>Companies</p>
               <p>Employer home</p>
               <p>Credits</p>

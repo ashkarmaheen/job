@@ -79,10 +79,11 @@ class jobs extends DBcon
 
 
 
-            $img = "image/";
+            $img = "../../image/";
 
-            $ff = $img . basename($this->image["name"]);
-            $extension = pathinfo($ff, PATHINFO_EXTENSION);
+            $imageup = $img . basename($this->image["name"]);
+            $imageset = basename($this->image["name"]);
+            $extension = pathinfo($imageup, PATHINFO_EXTENSION);
 
             $imgs =  $img . $this->image["name"];
 
@@ -92,12 +93,12 @@ class jobs extends DBcon
 
 
                 if (in_array(strtolower($extension), ['png', 'jpg', 'jpeg']) && $this->image["size"] > 500) {
-                    move_uploaded_file($this->image["tmp_name"], $ff);
+                    move_uploaded_file($this->image["tmp_name"], $imageup);
 
 
 
                     $req = "INSERT INTO jobs(companyname,image,jobtype,industries,roles,skills,education,location,fixed,earningpotential,workmode,shift,employmenttype,agelimit,Language,experience,gender) 
-                    value('$this->companyname','$ff','$this->jobtype',' $this->industries',' $this->roles','$this->skills',' $this->education','$this->location','$this->fixed','$this->earning','$this->workmode','$this->shift','$this->employmenttype','$this->age','$this->language','$this->experience','$this->gender')";
+                    value('$this->companyname','$imageset','$this->jobtype',' $this->industries',' $this->roles','$this->skills',' $this->education','$this->location','$this->fixed','$this->earning','$this->workmode','$this->shift','$this->employmenttype','$this->age','$this->language','$this->experience','$this->gender')";
                     $this->con->exec($req);
 
 

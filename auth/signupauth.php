@@ -3,13 +3,9 @@ require("../lib/db.php");
 
 class Sin extends DBcon
 {
-
     public $username;
     public $email;
     public $password;
-
-
-
 
     public function __construct()
     {
@@ -22,20 +18,27 @@ class Sin extends DBcon
 
             $this->username = $_POST["username"];
             $this->email = $_POST["email"];
-            $this->password = $_POST["password"];
+            $this->password = password_hash($_POST["password"], PASSWORD_DEFAULT); // Secure password hashing
 
             try {
-                $req = "INSERT INTO users(username,email,password) 
-           value('$this->username','$this->email','$this->password')";
-                $this->con->exec($req);
+                $req = "INSERT INTO users (username, email, password) VALUES (:username, :email, :password)";
+                $stmt = $this->con->prepare($req);
+                $stmt->bindParam(':username', $this->username);
+                $stmt->bindParam(':email', $this->email);
+                $stmt->bindParam(':password', $this->password);
+
+                if ($stmt->execute()) {
+                    session_start();
+                    $_SESSION['username'] = $this->username; // Store username in session
+                    header("Location:../admin/dashboard/"); // Redirect to dashboard
+                    exit();
+                }
             } catch (PDOException $e) {
-                echo $req . "<br>" . $e->getMessage();
+                echo "Error: " . $e->getMessage();
             }
-        } else {
-        };
+        }
     }
 };
 
-$conc = new sin();
-
+$conc = new Sin();
 $conc->signfn();

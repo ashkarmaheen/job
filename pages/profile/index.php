@@ -16,37 +16,42 @@ $data = $profile->profn();
 </head>
 
 <body>
+    <div>
+        <?php
+        require("../componants/header.php");
+        ?>
+    </div>
+
     <section class="h-100 gradient-custom-2">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center">
                 <div class="col col-lg-9 col-xl-9">
                     <div class="card">
+                        <?php
+                        foreach ($data as $pro) {
+                            echo ' 
                         <div class="rounded-top text-white d-flex flex-row" style="background-color: #000; height:200px;">
-                            <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
-                                <img src="../image/avatar.png"
-                                    alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2"
-                                    style="width: 150px; z-index: 1" />
+                            <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;height: 190px">
+                                <div class="overflow-hidden img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1;height: 200px" >
+                                <img style="width:97%;" src="../' . $pro["image"] . '"/>
+                                </div>
 
                             </div>
                             <div class="ms-3" style="margin-top: 130px;">
-                                <h5>Ashkar</h5>
-                                <p>kerala,kottayam</p>
+                                <h5>' . $pro["firstname"] . ' ' . $pro["lastname"] . '</h5>
+                                <p>' . $pro["state"] . '  ' . $pro["city"] . '</p>
                             </div>
-                        </div>
+                        </div>';
+                        }
+                        ?>
                         <div class="p-5 text-black bg-body-tertiary">
 
                         </div>
                         <div class="card-body p-4 text-black">
 
-                            <div class="p-4 bg-body-tertiary">
-                                <p class="font-italic mb-1">Web Developer</p>
-                                <p class="font-italic mb-1">ashkar@gmail.com</p>
-                                <p class="font-italic mb-0">9980956175</p>
-
-                            </div>
 
                             <div class="d-flex justify-content-between align-items-center mt-3 mb-2 text-body">
-                                <h3>View Resume & Download</h3>
+                                <h3>View Resume</h3>
 
                             </div>
                             <?php
@@ -55,7 +60,7 @@ $data = $profile->profn();
                                 <div class="bg-black w-100 d-flex" style="height:180px;">
                                     <div class="w-50  p-4" style="height:180px;">
                                         <div class="bg-white" style="height:130px;width:130px;">
-                                        <img style="width:89%;" src="' . $data["image"] . '"/>
+                                        <img style="width:89%;" src="../' . $data["image"] . '"/>
                                         </div>
                                     </div>
                                     <div class="w-50 text-white p-5">
@@ -151,9 +156,9 @@ $data = $profile->profn();
                             ?>
 
                             <div class="text-center">
-                                <a href="fpdf.php" style="text-decoration:none;">
+                                <!-- <a href="fpdf.php" style="text-decoration:none;">
                                     <button type="button" name="download" class="btn btn-success">Download</button>
-                                </a>
+                                </a> -->
                                 <button type="button" name="hide" class="btn btn-success">View Resume</button>
                             </div>
                         </div>
@@ -164,12 +169,24 @@ $data = $profile->profn();
         </div>
     </section>
 
+    <div>
+        <?php
+        require("../componants/footer.php");
+        ?>
+    </div>
+
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             document.querySelector('button[name="hide"]').addEventListener("click", function() {
                 let resumeDiv = document.getElementById("hideresume");
                 if (resumeDiv) {
                     resumeDiv.classList.toggle("d-none");
+
+                    if (resumeDiv.classList.contains("d-none")) {
+                        this.innerHTML = "View Resume";
+                    } else {
+                        this.innerHTML = "Hide Resume";
+                    }
                 }
             });
         });
