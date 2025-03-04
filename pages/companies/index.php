@@ -35,10 +35,10 @@ $data = $company->getcompanies();
             echo '<div class="mt-4">
             <a href="../details?id=' . $id . '" style="text-decoration:none;">
 
-                <div class="card mb-3">
+                <div class="card mb-3 overflow-hidden">
                     <div class="row g-0">
-                        <div class="col-md-2">
-                            <img style="width:100%;" src="../../' . $data["image"] . '" />
+                        <div class="col-md-2 d-flex overflow-hidden">
+                            <img style="width:100%;" src="../../image/' . $data["image"] . '" />
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
@@ -90,6 +90,14 @@ $data = $company->getcompanies();
         ';
         } ?>
 
+
+
+    </div>
+
+    <div>
+        <?php
+        require("../componants/footer.php");
+        ?>
     </div>
 
     <script src="https://kit.fontawesome.com/64fc7c3650.js" crossorigin="anonymous"></script>

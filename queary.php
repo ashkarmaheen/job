@@ -44,8 +44,28 @@ class home extends DBcon
             echo "Error: " . $e->getMessage();
         }
     }
+
+    public function topcategory()
+    {
+        try {
+            $this->serctry = $this->con->prepare("
+                SELECT roles, COUNT(*) AS role_count 
+                FROM jobs 
+                GROUP BY roles
+            ");
+            $this->serctry->execute();
+
+            $result = $this->serctry->setFetchMode(PDO::FETCH_ASSOC);
+            $tb = $this->serctry->fetchAll();
+
+            return $tb;
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+        }
+    }
 }
 
 $home = new home();
 $home->getcategory();
 $home->searchcategory();
+$home->topcategory();

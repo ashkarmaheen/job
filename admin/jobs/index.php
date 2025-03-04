@@ -92,7 +92,7 @@ $data = $jobsl->getjob();
                                            
                                                 <td class='d-flex' style='align-items: center'> 
                                                 <div style='width:100px;height:60px;overflow: hidden; margin-right: 10px;'>
-                                                <img style='width:100%;' src='../../" . $data["image"] . "' />
+                                                <img style='width:100%;' src='../../image/" . $data["image"] . "' />
                                                 </div>
                                                     <div >" . $data["companyname"] . "</div></td>
                                             <td>" . $data["jobtype"] . "</td>
