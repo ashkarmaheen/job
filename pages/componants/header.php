@@ -30,11 +30,11 @@
 
                 </ul>
 
-                <a href="../../uploadresume/index.php">
+                <a href="../uploadresume/">
                     <button class="btn btn-outline-success buttoncol textnav" type="submit">Upload Resume <i class="fa-solid fa-arrow-up-from-bracket ps-2"></i></button>
                 </a>
 
-                <a href="../../profile/index.php">
+                <a href="../profile/">
 
                     <div style="width:40px;height:40px;" class="ms-5">
                         <img class="w-100" src="../../image/profile-user.png" alt="profileimage" class="rounded-circle">
